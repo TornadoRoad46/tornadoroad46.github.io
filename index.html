@@ -6,7 +6,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <title>Cars Vs Trains</title>
 
-    <!-- Original emoji script (harmless) -->
+    <!-- Original emoji script (harmless, kept for completeness) -->
     <script type="text/javascript">
         window._wpemojiSettings = {
             "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/",
@@ -38,34 +38,50 @@
         }
     </style>
 
-    <!-- Original styles (via Wayback) to preserve look -->
-    <link rel="stylesheet" id="oba_youtubepopup_css-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/plugins/video-popup/css/YouTubePopUp.css?ver=4.9.6" media="all">
-    <link rel="stylesheet" id="font-awesome-css" href="https://web.archive.org/web/20181227184606/http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=4.9.6" media="all">
-    <link rel="stylesheet" id="google-font-roboto-css" href="https://web.archive.org/web/20181227184606/http://fonts.googleapis.com/css?family=Roboto:400,300,500,700&ver=4.9.6" media="all">
-    <link rel="stylesheet" id="google-font-roboto-cond-css" href="https://web.archive.org/web/20181227184606/https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&ver=4.9.6" media="all">
-    <link rel="stylesheet" id="pure-grid-css" href="https://web.archive.org/web/20181227184606/http://yui.yahooapis.com/pure/0.6.0/pure-min.css?ver=4.9.6" media="all">
-    <link rel="stylesheet" id="pure-grid-responsive-css" href="https://web.archive.org/web/20181227184606/http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css?ver=4.9.6" media="all">
-    <link rel="stylesheet" id="jquery-redmond-css" href="https://web.archive.org/web/20181227184606/http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/redmond/jquery-ui.css?ver=4.9.6" media="all">
-    <link rel="stylesheet" id="blitzer-ui-css-css" href="https://web.archive.org/web/20181227184606/http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css?ver=4.9.6" media="all">
-    <link rel="stylesheet" id="csx-carsvstrans-style-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css?ver=4.9.6" media="all">
+    <!-- Local CSS files (stored under /code/) – Wayback URLs replaced -->
+    <link rel="stylesheet" id="font-awesome-css" href="/code/font-awesome.min.css?ver=4.3.0" media="all">
+    <link rel="stylesheet" id="google-font-roboto-css" href="/code/roboto.css?ver=400,300,500,700" media="all">
+    <link rel="stylesheet" id="google-font-roboto-cond-css" href="/code/roboto-condensed.css?ver=400,700" media="all">
+    <link rel="stylesheet" id="pure-grid-css" href="/code/pure-min.css?ver=0.6.0" media="all">
+    <link rel="stylesheet" id="pure-grid-responsive-css" href="/code/grids-responsive-min.css?ver=0.6.0" media="all">
+    <link rel="stylesheet" id="jquery-redmond-css" href="/code/redmond-jquery-ui.css?ver=1.11.2" media="all">
+    <link rel="stylesheet" id="blitzer-ui-css-css" href="/code/blitzer-jquery-ui.css?ver=1.8.9" media="all">
+    <link rel="stylesheet" id="csx-carsvstrans-style-css" href="/code/carsvstrains-style.css?ver=4.9.6" media="all">
 
-    <!-- Additional styles for video size, gap, footer, fullscreen image -->
+    <!-- Note: oba_youtubepopup_css was not archived, so it's omitted -->
+
+    <!-- Glassy look enhancements + e926 full-height image -->
     <style>
-        /* Video wrapper with 16:9 aspect ratio (original size) */
+        /* Glassy background effect */
+        body {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%), #1a1a1a;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        #page {
+            background: rgba(20,20,20,0.6);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            min-height: 100vh;
+        }
+        /* Video tiles with glassy border and shadow */
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            background: #000;
-            /* Add gap between videos */
+            background: rgba(0,0,0,0.7);
             margin: 8px;
             box-sizing: border-box;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5), inset 0 0 30px rgba(255,255,255,0.05);
+            backdrop-filter: blur(2px);
         }
-        /* Compensate for margin on pure-g */
         .pure-g {
-            margin: -8px; /* pulls back the outer margin so edges align */
+            margin: -8px;
         }
         .video-wrapper iframe {
             position: absolute;
@@ -76,31 +92,28 @@
             border: 0;
         }
 
-        /* Footer fixed at bottom with original yellow */
+        /* Footer fixed at bottom with original yellow and glassy touch */
         #colophon {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #ffcc00; /* cars-vs-trains yellow */
+            background: rgba(255,204,0,0.9);
+            backdrop-filter: blur(5px);
             color: #000;
             text-align: center;
             padding: 12px 0;
             font-family: 'Roboto Condensed', sans-serif;
             font-size: 16px;
             z-index: 1000;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.5);
+            border-top: 1px solid rgba(255,255,255,0.3);
         }
-        /* Ensure content doesn't hide behind footer */
         body {
-            margin-bottom: 60px; /* match footer height */
-        }
-        /* Hidden visitor badge */
-        .visitor-badge-hidden {
-            display: none;
+            margin-bottom: 60px;
         }
 
-        /* Fullscreen image for "No" button - covers entire viewport exactly */
+        /* Fullscreen image for "No" button – now touches top/bottom exactly (height 100%, width auto) */
         #fullscreen-image {
             position: fixed;
             top: 0;
@@ -108,17 +121,28 @@
             width: 100vw;
             height: 100vh;
             background: black url('https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg') no-repeat center center;
-            background-size: cover;
+            background-size: auto 100%; /* height exactly 100%, width auto – touches top/bottom, sides may be cropped or have bars */
             z-index: 10000;
             display: none;
         }
+
+        /* Age overlay glassy look */
+        #entry-overlay {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+        .entry--wrapper .header {
+            background: rgba(30,30,30,0.8);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255,204,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
     </style>
 
-    <!-- jQuery only (minimal) -->
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
-
-    <!-- All analytics/tracking scripts removed as requested -->
+    <!-- Local jQuery (under /jQuery/) -->
+    <script type="text/javascript" src="/jQuery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/jQuery/1.4.1/jquery-migrate.min.js"></script>
 </head>
 <body>
     <!-- Fullscreen image for "No" button -->
@@ -141,20 +165,18 @@
                         You don’t ever want to get hit by a train.
                     </p>
                 </header>
-                <!-- bottom div kept but empty (social icons removed) -->
                 <div class="bottom"></div>
             </div>
         </div>
 
-        <!-- Header after verification (hidden initially) – social icons removed -->
+        <!-- Header after verification (hidden initially) – no icons -->
         <div class="header--content">
             <header class="header" style="visibility: hidden;">
                 <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
-                <!-- No icons -->
             </header>
         </div>
 
-        <!-- Main video grid – YouTube embeds, with gaps -->
+        <!-- Main video grid – YouTube embeds with gaps -->
         <div id="content" class="site-content" style="visibility: hidden;">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
@@ -222,11 +244,14 @@
         <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
             <div style="text-align:center;">
                 Website recreation
-                <!-- Hidden visitor badge (counts visits) - using display:none ensures it's invisible but the request is made -->
+                <!-- Hidden visitor badge (counts visits) -->
                 <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" alt="visitor counter" />
             </div>
         </footer>
     </div>
+
+    <!-- Local wp-embed (under /jQuery/) -->
+    <script type="text/javascript" src="/jQuery/4.9.6/wp-embed.min.js"></script>
 
     <!-- Age verification and fullscreen image script -->
     <script>
@@ -242,16 +267,13 @@
         }
 
         function showFullscreenImage() {
-            // Hide age overlay and show fullscreen image
             document.getElementById('entry-overlay').style.visibility = 'hidden';
             document.getElementById('fullscreen-image').style.display = 'block';
-            // Hide header, content, footer if they were visible (they aren't, but safe)
             document.querySelector('.header--content .header').style.visibility = 'hidden';
             document.getElementById('content').style.visibility = 'hidden';
             document.getElementById('colophon').style.visibility = 'hidden';
         }
 
-        // On page load, ensure overlay visible, content hidden, and no fullscreen image
         (function() {
             document.getElementById('entry-overlay').style.visibility = 'visible';
             document.querySelector('.header--content .header').style.visibility = 'hidden';
@@ -260,14 +282,10 @@
             document.getElementById('fullscreen-image').style.display = 'none';
         })();
 
-        // Optional: click on fullscreen image returns to age prompt (user-friendly)
         document.getElementById('fullscreen-image').onclick = function() {
             this.style.display = 'none';
             document.getElementById('entry-overlay').style.visibility = 'visible';
         };
     </script>
-
-    <!-- wp-embed (optional, but harmless) -->
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
 </body>
 </html>
