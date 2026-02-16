@@ -8,30 +8,67 @@
   <style>
     body {
       margin: 0;
-      background: black;
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
       color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       text-align: center;
     }
 
-    #ageGate, #mainContent {
+    .header {
+      font-size: 48px;
+      font-weight: bold;
+      padding: 30px 0;
+      letter-spacing: 2px;
+    }
+
+    .warning-box {
+      background-color: #990000;
+      padding: 30px;
+      width: 90%;
+      max-width: 700px;
+      margin: 40px auto;
+      border-radius: 4px;
+    }
+
+    .warning-box h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .warning-box p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .buttons {
+      margin-top: 25px;
+    }
+
+    .buttons button {
+      background-color: black;
+      color: white;
+      border: 2px solid white;
+      padding: 12px 30px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .buttons button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    #mainContent {
       display: none;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
 
-    button {
-      padding: 12px 24px;
-      margin: 10px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    img.main-image {
+    .main-image {
       max-width: 90%;
       max-height: 80vh;
     }
@@ -45,12 +82,17 @@
 <body>
 
 <div id="ageGate">
-  <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
-  <div>
-    <button onclick="enterSite()">Yes, I Am</button>
-    <button onclick="denyAccess()">No, I'm Not</button>
+  <div class="header">CARS VS TRAINS</div>
+
+  <div class="warning-box">
+    <h2>ARE YOU AT LEAST 18 YEARS OF AGE?</h2>
+    <p>You don’t ever want to get hit by a train.</p>
+
+    <div class="buttons">
+      <button onclick="enterSite()">YES</button>
+      <button onclick="denyAccess()">NO</button>
+    </div>
   </div>
-  <p>You don’t ever want to get hit by a train.</p>
 </div>
 
 <div id="mainContent">
@@ -70,8 +112,6 @@
   function denyAccess() {
     window.location.href = "https://google.com";
   }
-
-  document.getElementById("ageGate").style.display = "flex";
 </script>
 
 </body>
