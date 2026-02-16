@@ -1,76 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cars Vs Trains</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <title>furries vs trains</title>
   <style>
     body {
       margin: 0;
-      background-color: black;
-      font-family: Arial, Helvetica, sans-serif;
-      color: white;
-      text-align: center;
-    }
-
-    .header {
-      font-size: 48px;
-      font-weight: bold;
-      padding: 30px 0;
-      letter-spacing: 2px;
-    }
-
-    .warning-box {
-      background-color: #990000;
-      padding: 30px;
-      width: 90%;
-      max-width: 700px;
-      margin: 40px auto;
-      border-radius: 4px;
-    }
-
-    .warning-box h2 {
-      margin-top: 0;
-      font-size: 24px;
-    }
-
-    .warning-box p {
-      font-size: 18px;
-      margin: 20px 0;
-    }
-
-    .buttons {
-      margin-top: 25px;
-    }
-
-    .buttons button {
-      background-color: black;
-      color: white;
-      border: 2px solid white;
-      padding: 12px 30px;
-      margin: 10px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .buttons button:hover {
-      background-color: white;
-      color: black;
-    }
-
-    #mainContent {
-      display: none;
+      background: black;
+      display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
     }
 
     .main-image {
-      max-width: 90%;
-      max-height: 80vh;
+      max-width: 100%;
+      max-height: 100%;
     }
 
     .badge {
@@ -78,41 +23,13 @@
     }
   </style>
 </head>
-
 <body>
 
-<div id="ageGate">
-  <div class="header">CARS VS TRAINS</div>
-
-  <div class="warning-box">
-    <h2>ARE YOU AT LEAST 18 YEARS OF AGE?</h2>
-    <p>You don’t ever want to get hit by a train.</p>
-
-    <div class="buttons">
-      <button onclick="enterSite()">YES</button>
-      <button onclick="denyAccess()">NO</button>
-    </div>
-  </div>
-</div>
-
-<div id="mainContent">
   <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg">
 
   <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com">
     <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" />
   </a>
-</div>
-
-<script>
-  function enterSite() {
-    document.getElementById("ageGate").style.display = "none";
-    document.getElementById("mainContent").style.display = "flex";
-  }
-
-  function denyAccess() {
-    window.location.href = "https://google.com";
-  }
-</script>
 
 </body>
 </html>
