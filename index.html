@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <title>Cars Vs Trains · age gate + videos + furball</title>
+    <title>Cars Vs Trains</title>
 
-    <!-- original emoji script (preserved) -->
+    <!-- Original emoji script (harmless) -->
     <script type="text/javascript">
         window._wpemojiSettings = {
             "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/",
@@ -38,7 +38,7 @@
         }
     </style>
 
-    <!-- original stylesheets (archived, keep for layout) -->
+    <!-- Original styles (via Wayback) to preserve look -->
     <link rel="stylesheet" id="oba_youtubepopup_css-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/plugins/video-popup/css/YouTubePopUp.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="font-awesome-css" href="https://web.archive.org/web/20181227184606/http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="google-font-roboto-css" href="https://web.archive.org/web/20181227184606/http://fonts.googleapis.com/css?family=Roboto:400,300,500,700&ver=4.9.6" media="all">
@@ -49,152 +49,37 @@
     <link rel="stylesheet" id="blitzer-ui-css-css" href="https://web.archive.org/web/20181227184606/http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="csx-carsvstrans-style-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css?ver=4.9.6" media="all">
 
-    <!-- jQuery (preserved) -->
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
-
+    <!-- Enhanced glassy look for video page -->
     <style>
-        /* ---------- GLOBAL RESET / PAGE RULES ---------- */
-        body {
-            margin: 0;
-            background: #000;  /* base black (age gate & furball) */
-            font-family: 'Roboto', sans-serif;
-        }
-
-        /* all pages are hidden by default, shown via JS */
-        .page {
-            display: none;
-        }
-
-        /* ---------- AGE GATE (crisp black, NO glass) ---------- */
-        #age-gate {
-            background: black;          /* solid black background */
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-        }
-
-        #age-gate .entry--wrapper {
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        /* header box – solid, no glass, no blur, no nonsense */
-        #age-gate .header {
-            background: #0a0a0a;         /* deep black/gray solid */
-            border: 2px solid #ffcc00;    /* original yellow touch */
-            border-radius: 24px;
-            padding: 2rem 2rem 2.5rem;
-            text-align: center;
-            color: white;
-            box-shadow: 0 10px 30px rgba(255,204,0,0.2); /* just a glow, not glass */
-        }
-
-        #age-gate .title {
-            max-width: 280px;
-            margin: 0 auto 1.5rem;
-            display: block;
-        }
-
-        #age-gate h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            font-family: 'Roboto Condensed', sans-serif;
-            color: #ffcc00;
-            margin: 0.5rem 0 1.8rem;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 0 #b37400;
-        }
-
-        .age--buttons__wrap {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin: 2rem 0 1.5rem;
-        }
-
-        .age--buttons__wrap a {
-            background: #ffcc00;
-            color: black;
-            font-weight: bold;
-            font-size: 1.5rem;
-            padding: 0.75rem 2.5rem;
-            border-radius: 60px;
-            text-decoration: none;
-            font-family: 'Roboto Condensed', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid #d9b000;
-            transition: 0.15s;
-            box-shadow: 0 4px 0 #997a00;
-        }
-
-        .age--buttons__wrap a:hover {
-            background: #ffdd44;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 #997a00;
-        }
-
-        .age--notice {
-            font-size: 1.1rem;
-            background: #111;
-            padding: 0.8rem;
-            border-radius: 40px;
-            border-left: 6px solid #ffcc00;
-            color: #ddd;
-            max-width: 500px;
-            margin: 1.5rem auto 0;
-        }
-        .notice--yellow {
-            color: #ffcc00;
-            font-weight: bold;
-        }
-
-        /* ---------- VIDEOS PAGE (grid with spacing) ---------- */
-        #videos-page {
-            background: #111; /* dark but not pure black to differentiate */
-            padding: 20px 20px 80px; /* bottom space for footer */
-        }
-
-        /* header logo on video page */
-        #videos-page .header--content .header {
-            text-align: center;
-            padding: 20px 0 10px;
-            background: transparent;
-        }
-        #videos-page .header--content img.title {
-            max-width: 320px;
-        }
-
-        /* VIDEO GRID – non‑touching cells */
-        .pure-g {
-            margin: -16px;  /* compensate outer gap, creates 16px around each box */
-        }
-        .l-box.video-wrapper {
-            margin: 16px;           /* forces gap on all four sides → videos never touch */
-            padding: 0;
-            background: #1a1a1a;     /* fallback */
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid #333;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.8);
-            transition: 0.2s;
-        }
-        .l-box.video-wrapper:hover {
-            border-color: #ffcc00;
-            transform: scale(1.01);
-            box-shadow: 0 15px 30px gold;
-        }
-
+        /* Video wrapper with 16:9 aspect ratio and glassy effect */
         .video-wrapper {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
+            overflow: hidden;
+            background: rgba(255,255,255,0.05); /* light glass base */
+            margin: 12px; /* even gap in all directions */
+            box-sizing: border-box;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+
+        .video-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 25px rgba(255,255,255,0.15);
+            border-color: rgba(255,204,0,0.5);
+        }
+
+        /* Compensate for margin on pure-g to keep outer edges aligned */
+        .pure-g {
+            margin: -12px; /* pulls back the outer margin so edges align */
+        }
+
         .video-wrapper iframe {
             position: absolute;
             top: 0;
@@ -202,153 +87,152 @@
             width: 100%;
             height: 100%;
             border: 0;
+            border-radius: 15px; /* slightly smaller than wrapper to show border */
         }
 
-        /* footer (only on video page) */
+        /* Footer fixed at bottom with original yellow */
         #colophon {
-            background-color: #ffcc00;
-            color: black;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffcc00; /* cars-vs-trains yellow */
+            color: #000;
             text-align: center;
-            padding: 15px 0;
+            padding: 12px 0;
             font-family: 'Roboto Condensed', sans-serif;
             font-size: 16px;
-            width: 100%;
-            margin-top: 40px;
-            border-top: 3px solid #b69400;
+            z-index: 1000;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
         }
-        /* visitor badge hidden (as before) but container visible */
-        #colophon img {
+        /* Ensure content doesn't hide behind footer */
+        body {
+            margin-bottom: 60px; /* match footer height */
+        }
+        /* Hidden visitor badge */
+        .visitor-badge-hidden {
             display: none;
         }
 
-        /* ---------- FURBALL PAGE (e926 fullscreen, touches top/bottom only) ---------- */
-        #furball-page {
+        /* Fullscreen image for "No" button - covers entire viewport exactly */
+        #fullscreen-image {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
-            background: black; /* pure black edges */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            background: black url('https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: 10000;
+            display: none;
         }
 
-        #furball-image {
-            width: 100%;
-            height: 100%;
-            background: black url('https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg') no-repeat center;
-            background-size: auto 100%;   /* height fits viewport, width auto → touches top/bottom, sides cropped */
-            cursor: pointer;
-            transition: opacity 0.1s;
-            box-shadow: none;
-            border: none;
-        }
-
-        /* optional small back link (non intrusive) */
-        .back-home {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            color: #ffcc00;
+        /* Age overlay glassy look (optional) */
+        #entry-overlay {
             background: rgba(0,0,0,0.7);
-            padding: 8px 16px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 1px solid #ffcc00;
-            z-index: 9999;
-            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
         }
-        .back-home:hover {
-            background: #ffcc00;
-            color: black;
+        .entry--wrapper .header {
+            background: rgba(30,30,30,0.8);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255,204,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
     </style>
+
+    <!-- jQuery only (minimal) -->
+    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
+    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
 </head>
 <body>
+    <!-- Fullscreen image for "No" button -->
+    <div id="fullscreen-image" onclick="this.style.display='none'; document.getElementById('entry-overlay').style.visibility='visible';"></div>
 
-    <!-- ############  PAGE 1 : AGE GATE (root)  ############ -->
-    <div id="age-gate" class="page">
-        <div class="entry--wrapper">
-            <header class="header">
-                <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]" onerror="this.src='https://via.placeholder.com/300x80?text=CARS+vs+TRAINS';">
-                <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
-                <div class="age--buttons__wrap">
-                    <!-- Yes → /videos , No → /furball (real links, JS picks up) -->
-                    <a href="/videos">Yes, I Am</a>
-                    <a href="/furball">No, I'm Not</a>
-                </div>
-                <hr style="border-color:#ffcc00; max-width:300px;">
-                <p class="age--notice">
-                    <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
-                    You don’t ever want to get hit by a train.
-                </p>
-            </header>
+    <div id="page" class="site">
+        <!-- Age overlay (always visible initially) -->
+        <div id="entry-overlay" style="visibility: visible;">
+            <div class="entry--wrapper">
+                <header class="header">
+                    <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
+                    <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
+                    <div class="age--buttons__wrap">
+                        <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
+                        <a href="javascript:void(0);" onclick="showFullscreenImage(); return false;">No, I'm Not</a>
+                    </div>
+                    <hr>
+                    <p class="age--notice">
+                        <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
+                        You don’t ever want to get hit by a train.
+                    </p>
+                </header>
+                <!-- bottom div kept but empty (social icons removed) -->
+                <div class="bottom"></div>
+            </div>
         </div>
-    </div>
 
-    <!-- ############  PAGE 2 : VIDEOS (/videos)  ############ -->
-    <div id="videos-page" class="page">
-        <!-- small header -->
+        <!-- Header after verification (hidden initially) – social icons removed -->
         <div class="header--content">
-            <header class="header">
-                <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]" onerror="this.src='https://via.placeholder.com/300x80?text=CARS+vs+TRAINS';">
+            <header class="header" style="visibility: hidden;">
+                <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
+                <!-- No icons -->
             </header>
         </div>
 
-        <!-- main video grid (glassy effect removed, only solid borders) -->
-        <div id="content" class="site-content">
+        <!-- Main video grid – YouTube embeds with glassy look -->
+        <div id="content" class="site-content" style="visibility: hidden;">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
                     <div class="pure-g">
-                        <!-- video 1 -->
+                        <!-- Video 1 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/iEA1rLpbedU" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- 2 -->
+                        <!-- Video 2 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/frP4kb616G4" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- 3 -->
+                        <!-- Video 3 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/fZ8GdGLm_qw" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- 4 -->
+                        <!-- Video 4 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/biu8U4MUGWE" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- 5 -->
+                        <!-- Video 5 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/T8BdcFa4x80" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- 6 -->
+                        <!-- Video 6 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/BGXHTrFNwYo" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- 7 -->
+                        <!-- Video 7 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- 8 -->
+                        <!-- Video 8 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- 9 -->
+                        <!-- Video 9 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
                                 <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen></iframe>
@@ -359,81 +243,52 @@
             </div>
         </div>
 
-        <!-- footer with visitor badge (hidden) -->
-        <footer id="colophon" class="site-footer" role="contentinfo">
+        <!-- Footer fixed at bottom with yellow background and hidden visitor badge -->
+        <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
             <div style="text-align:center;">
-                Website recreation — trains are dangerous
-                <!-- hidden visitor badge -->
+                Website recreation
+                <!-- Hidden visitor badge (counts visits) -->
                 <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" alt="visitor counter" />
             </div>
         </footer>
     </div>
 
-    <!-- ############  PAGE 3 : FURBALL (/furball)  ############ -->
-    <div id="furball-page" class="page">
-        <div id="furball-image" title="click to go back"></div>
-        <a href="/" class="back-home">← Back to age gate</a>
-    </div>
-
-    <!-- Simple routing JS : show correct page based on path -->
+    <!-- Age verification and fullscreen image script -->
     <script>
+        function showContent() {
+            document.getElementById('entry-overlay').style.visibility = 'hidden';
+            document.querySelector('.header--content .header').style.visibility = 'visible';
+            document.getElementById('content').style.visibility = 'visible';
+            document.getElementById('colophon').style.visibility = 'visible';
+        }
+
+        function verifyAge() {
+            showContent();
+        }
+
+        function showFullscreenImage() {
+            document.getElementById('entry-overlay').style.visibility = 'hidden';
+            document.getElementById('fullscreen-image').style.display = 'block';
+            document.querySelector('.header--content .header').style.visibility = 'hidden';
+            document.getElementById('content').style.visibility = 'hidden';
+            document.getElementById('colophon').style.visibility = 'hidden';
+        }
+
         (function() {
-            // get path, default to '/' if empty
-            let path = window.location.pathname;
-            if (path.endsWith('/')) path = path.slice(0, -1); // remove trailing slash for matching
-            if (path === '') path = '/';
-
-            // hide all pages
-            document.getElementById('age-gate').style.display = 'none';
-            document.getElementById('videos-page').style.display = 'none';
-            document.getElementById('furball-page').style.display = 'none';
-
-            // show matching page
-            if (path === '/videos') {
-                document.getElementById('videos-page').style.display = 'block';
-            } else if (path === '/furball') {
-                document.getElementById('furball-page').style.display = 'block';
-            } else {  // default: root or anything else → age gate
-                document.getElementById('age-gate').style.display = 'flex';  // age gate uses flex
-                // if unknown path like /anything, optionally rewrite to root (but keep showing age)
-                if (path !== '/' && path !== '') {
-                    // optional: replaceState to '/' for cleaner url? we'll just show age.
-                    // but keep URL as is – user can still click yes/no
-                }
-            }
-
-            // extra: if we are on furball, clicking image goes back to home
-            const furImg = document.getElementById('furball-image');
-            if (furImg) {
-                furImg.addEventListener('click', function() {
-                    window.location.href = '/';
-                });
-            }
-
-            // make sure all links with href="/videos" etc behave normally (already does)
-            // but we want to ensure that clicking yes/no does NOT just reload with same html?
-            // they work as normal links, our routing will catch the new path.
+            document.getElementById('entry-overlay').style.visibility = 'visible';
+            document.querySelector('.header--content .header').style.visibility = 'hidden';
+            document.getElementById('content').style.visibility = 'hidden';
+            document.getElementById('colophon').style.visibility = 'hidden';
+            document.getElementById('fullscreen-image').style.display = 'none';
         })();
 
-        // bonus: dynamic handling for future pushstate? not needed, simple links are fine.
-        // but we want to keep age gate background black, no glass – already done via CSS.
+        document.getElementById('fullscreen-image').onclick = function() {
+            this.style.display = 'none';
+            document.getElementById('entry-overlay').style.visibility = 'visible';
+        };
     </script>
 
-    <!-- wp-embed (preserved) -->
+    <!-- wp-embed (optional) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
-
-    <!-- ensure that the logo placeholder works if missing -->
-    <script>
-        (function fixLogo() {
-            // if the transparent header doesn't exist, the onerror will set placeholder.
-            // but we can also add a fallback for all .title images.
-            const imgs = document.querySelectorAll('img.title');
-            imgs.forEach(img => {
-                if (!img.complete || img.naturalHeight === 0) {
-                    img.src = 'https://via.placeholder.com/300x80?text=CARS+vs+TRAINS';
-                }
-            });
-        })();
-    </script>
 </body>
 </html>
