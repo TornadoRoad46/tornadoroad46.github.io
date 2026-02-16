@@ -1,35 +1,76 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>furries vs trains</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cars Vs Trains</title>
   <style>
-    body {
-      margin: 0;
-      background: black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .main-image {
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    .badge {
-      margin-top: 20px;
-    }
+    :root { --bg:#000; --text:#fff; --accent:#ffd24d; }
+    html,body { height:100%; margin:0; font-family: Arial, sans-serif; background:var(--bg); color:var(--text); }
+    .center { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:20px; }
+    .header-title { max-width:600px; margin-bottom:12px; }
+    h1 { font-size:28px; margin:8px 0; }
+    .age-buttons { margin:18px 0; }
+    .age-buttons a { display:inline-block; margin:0 8px; padding:10px 18px; background:var(--accent); color:#000; text-decoration:none; border-radius:4px; font-weight:600; }
+    .notice { color: #ccc; font-size:14px; margin-top:8px; }
+    /* container for dynamically injected "replacement" content */
+    #main-content { width:100%; max-width:1000px; margin-top:18px; }
+    img.main-image { max-width:100%; height:auto; display:block; margin:0 auto; }
+    .badge { margin-top:16px; display:inline-block; }
   </style>
 </head>
 <body>
+  <div class="center">
+    <img class="header-title" src="/path/to/CvT-header-transparent.png" alt="Cars vs Trains" />
+    <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
 
-  <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg">
+    <div class="age-buttons" aria-hidden="false">
+      <!-- Both links intentionally call showReplacement; remove href navigation -->
+      <a href="#" id="btn-yes" onclick="showReplacement(event)">Yes, I Am</a>
+      <a href="#" id="btn-no" onclick="showReplacement(event)">No, I'm Not</a>
+    </div>
 
-  <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com">
-    <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" />
-  </a>
+    <p class="notice">
+      <strong style="color:var(--accent)">NOTICE:</strong> The following are real videos.<br>
+      You don’t ever want to get hit by a train.
+    </p>
 
+    <!-- placeholder where original content or later pages would appear -->
+    <div id="main-content" role="region" aria-live="polite">
+      <!-- Optional: keep a small teaser or keep empty to be replaced on click -->
+    </div>
+  </div>
+
+  <script>
+    // Your current site body (kept minimal). Update if you want different content.
+    const replacementHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;background:#000;color:#fff;">
+        <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg" alt="Main visual" />
+        <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com" style="margin-top:20px;">
+          <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" alt="visitor badge" />
+        </a>
+      </div>
+    `;
+
+    function showReplacement(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      // Replace the whole visible content with your site HTML
+      const main = document.getElementById('main-content');
+      if (!main) {
+        // fallback: replace body
+        document.body.innerHTML = replacementHTML;
+        return;
+      }
+      main.innerHTML = replacementHTML;
+
+      // Optionally remove the header/age UI after showing replacement
+      const header = document.querySelector('.center > h1');
+      if (header) header.style.display = 'none';
+      const buttons = document.querySelector('.age-buttons');
+      if (buttons) buttons.style.display = 'none';
+      const notice = document.querySelector('.notice');
+      if (notice) notice.style.display = 'none';
+    }
+  </script>
 </body>
 </html>
