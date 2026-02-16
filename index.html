@@ -3,65 +3,79 @@
 <head>
   <title>furries vs trains</title>
   <style>
-    /* Reset and base */
+    /* Reset & base */
     body {
       margin: 0;
       background: black;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* The age gate overlay */
+    /* Age gate overlay – exactly like the original */
     #entry-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.92);  /* dark overlay like original */
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      visibility: visible; /* Shown by default */
     }
 
     .entry--wrapper {
       text-align: center;
       color: white;
-      max-width: 600px;
+      max-width: 800px;
       padding: 20px;
+    }
+
+    .header img.title {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
     }
 
     .header h1 {
       font-size: 2em;
-      margin: 20px 0;
-      color: #ffcc00;
+      margin: 20px 0 30px;
+      font-weight: normal;
+      letter-spacing: 2px;
     }
 
     .age--buttons__wrap {
-      margin: 30px 0;
+      margin: 30px 0 20px;
     }
 
     .age--buttons__wrap a {
       display: inline-block;
-      padding: 15px 40px;
+      padding: 12px 40px;
       margin: 0 15px;
-      background: #ffcc00;
-      color: black;
+      background: #ffcc00;          /* original yellow */
+      color: #000;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
-      transition: background 0.3s;
+      font-size: 1.2em;
+      border-radius: 4px;
+      transition: background 0.2s;
     }
 
     .age--buttons__wrap a:hover {
       background: #ffaa00;
     }
 
+    hr {
+      border: none;
+      border-top: 1px solid #444;
+      width: 70%;
+      margin: 25px auto;
+    }
+
     .age--notice {
       font-size: 0.9em;
-      color: #ccc;
-      margin-top: 20px;
+      color: #aaa;
+      line-height: 1.5;
     }
 
     .notice--yellow {
@@ -69,12 +83,7 @@
       font-weight: bold;
     }
 
-    hr {
-      border: 1px solid #333;
-      width: 80%;
-    }
-
-    /* Main content (hidden until Yes is clicked) */
+    /* Main content (hidden until Yes) */
     #main-content {
       visibility: hidden;
       height: 100vh;
@@ -93,36 +102,32 @@
     .badge {
       margin-top: 20px;
     }
-
-    /* Optional: style for the "No" button if you want a different effect */
-    .no-button {
-      /* Keep as is */
-    }
   </style>
 </head>
 <body>
 
-  <!-- Age Gate Overlay -->
+  <!-- Age gate overlay – pure original look, no social media -->
   <div id="entry-overlay">
     <div class="entry--wrapper">
       <header class="header">
-        <!-- You can replace this with your own header image or text -->
-        <h1 style="font-size: 3em; margin-bottom: 0;">🚂 furries vs trains 🐾</h1>
+        <!-- Original header image – replace with your own if desired -->
+        <img class="title" src="header.png" alt="[Cars vs Trains]" onerror="this.onerror=null; this.alt='Cars vs Trains'; this.style.fontSize='3em'; this.style.color='white';">
         <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
         <div class="age--buttons__wrap">
           <a href="#" id="yes-button">Yes, I Am</a>
-          <a href="#" id="no-button" class="no-button">No, I'm Not</a>
+          <a href="#" id="no-button">No, I'm Not</a>
         </div>
         <hr>
         <p class="age--notice">
-          <span class="notice--yellow">NOTICE:</span> The following content is for mature furries.<br>
-          You don’t ever want to get hit by a train—or a furry.
+          <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
+          You don’t ever want to get hit by a train.
         </p>
       </header>
+      <!-- Bottom icons (Facebook, Twitter, Email) removed as requested -->
     </div>
   </div>
 
-  <!-- Main Content (hidden initially) -->
+  <!-- Your furry content (hidden initially) -->
   <div id="main-content">
     <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg" alt="Furry art">
     <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com">
@@ -131,26 +136,20 @@
   </div>
 
   <script>
-    // Handle Yes button: hide overlay, show content
+    // Yes button: hide age gate, show furry content
     document.getElementById('yes-button').addEventListener('click', function(e) {
-      e.preventDefault(); // Prevent any link navigation
+      e.preventDefault();
       document.getElementById('entry-overlay').style.visibility = 'hidden';
       document.getElementById('main-content').style.visibility = 'visible';
     });
 
-    // Handle No button: you can make it do something funny, like redirect to a video
+    // No button: reload the page (original behavior)
     document.getElementById('no-button').addEventListener('click', function(e) {
       e.preventDefault();
-      // Option 1: Just reload the page (same as original)
       location.reload();
-      // Option 2: Redirect to a funny YouTube video (uncomment below)
+      // To send them elsewhere (e.g., a funny video), replace the line above with:
       // window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
     });
-
-    // Optional: If you want the overlay to be hidden automatically if the user already verified (using session storage)
-    // But for simplicity, we'll keep it as is.
   </script>
-
-  <!-- Optional: Add any footer or extra elements from the original if you like -->
 </body>
 </html>
