@@ -1,217 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cars Vs Trains — replica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Minimal styles to mirror original layout. Adjust as needed. -->
-  <style>
-    :root {
-      --bg:#000;
-      --text:#fff;
-      --muted:#888;
-      --accent:#f5c542;
-    }
-    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Roboto,Arial,Helvetica,sans-serif;}
-    a{color:inherit;text-decoration:none}
-    .site {max-width:1200px;margin:0 auto;padding:20px;}
-    header.header{text-align:center;padding:10px 0}
-    header.header img.title{max-width:420px;height:auto;display:block;margin:0 auto 10px;}
-    h1{font-size:20px;margin:6px 0 12px}
-    .age-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:9999;}
-    .age-box{max-width:850px;width:95%;padding:28px;background:transparent;color:var(--text);text-align:center;border-radius:6px}
-    .age--buttons__wrap a{display:inline-block;margin:10px 12px;padding:10px 18px;border-radius:4px;background:#222;color:#fff;font-weight:600}
-    .age--notice{margin-top:10px;color:var(--muted);font-size:14px}
-    .notice--yellow{color:var(--accent);font-weight:700}
+<title>Cars Vs Trains</title>
 
-    /* Layout for grid of videos */
-    .grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:14px}
-    .video-card{width:300px;background:#0b0b0b;border-radius:6px;padding:10px;box-sizing:border-box;position:relative}
-    .video--thumbnail{width:100%;height:auto;border-radius:4px;display:block}
-    .vid-icon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
-    .vid-icon a img{width:80px;height:80px;pointer-events:auto;cursor:pointer}
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+}
 
-    /* share icon */
-    .share-icon{position:absolute;right:8px;bottom:10px;opacity:0.95}
+#ageGate, #mainContent, #noAccess {
+    display: none;
+}
 
-    /* modal player */
-    .player-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;z-index:10000}
-    .player-overlay iframe{width:90%;max-width:1000px;height:56.25vw;max-height:640px;border:0}
-    .player-close{position:absolute;right:20px;top:20px;color:#fff;font-size:20px;padding:8px;background:#222;border-radius:4px;cursor:pointer}
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
 
-    /* hidden visitor badge (still loads image for counting) */
-    .visitor-hidden{display:none !important;visibility:hidden;height:0;width:0;overflow:hidden}
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-    /* small footer note */
-    footer.recreation-note{text-align:center;color:var(--muted);font-size:12px;padding:12px 6px}
-    .custom-page{display:flex;align-items:center;justify-content:center;min-height:75vh;flex-direction:column}
-    .custom-page .main-image{max-width:100%;max-height:80vh}
-  </style>
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.video-grid iframe {
+    width: 100%;
+    height: 200px;
+}
+
+footer {
+    text-align: center;
+    font-size: 10px;
+    opacity: 0.4;
+    padding: 10px;
+}
+</style>
 </head>
+
 <body>
-  <!-- Visitor badge: included but hidden so it still triggers requests -->
-  <div class="visitor-hidden" aria-hidden="true">
-    <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com">
-      <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" alt="visitor badge" />
-    </a>
-  </div>
 
-  <!-- Age overlay -->
-  <div id="ageOverlay" class="age-overlay" role="dialog" aria-modal="true">
-    <div class="age-box">
-      <header class="header">
-        <!-- local logo file (place CvT-header-transparent.png in repo root or adjust path) -->
-        <img class="title" src="CvT-header-transparent.png" alt="Cars vs Trains">
-        <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
-
-        <!-- IMPORTANT: social icons deliberately omitted from the age overlay per instruction -->
-        <div class="age--buttons__wrap">
-          <a href="#" id="ageYes">Yes, I Am</a>
-          <a href="#" id="ageNo">No, I'm Not</a>
-        </div>
-
-        <hr style="border:none;border-top:1px solid #222;margin:18px 0">
-        <p class="age--notice"><span class="notice--yellow">NOTICE:</span> The following are real videos.<br>You don’t ever want to get hit by a train.</p>
-      </header>
+<!-- AGE GATE -->
+<div id="ageGate" class="centered">
+    <img src="CvT-header-transparent.png" style="max-width:400px;">
+    <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
+    <div>
+        <button onclick="enterSite()">Yes, I Am</button>
+        <button onclick="denyAccess()">No, I'm Not</button>
     </div>
-  </div>
+    <p style="margin-top:20px;">
+        <strong>NOTICE:</strong><br>
+        The following are real videos.<br>
+        You don’t ever want to get hit by a train.
+    </p>
+</div>
 
-  <!-- ORIGINAL site content (shown after Yes) -->
-  <div id="originalSite" class="site" style="display:none">
-    <header class="header">
-      <img class="title" src="CvT-header-transparent.png" alt="Cars vs Trains">
-      <div class="icons" style="margin-top:8px">
-        <!-- These are page body social icons (kept in the full site as part of content) -->
-        <a href="https://www.facebook.com/share.php?u=http://carsvstrains.com" target="_blank" title="Share on Facebook">Share</a>
-        &nbsp;|&nbsp;
-        <a href="https://twitter.com/intent/tweet?status=Cars%20Vs%20Trains+http://carsvstrains.com" target="_blank" title="Tweet">Tweet</a>
-        &nbsp;|&nbsp;
-        <a href="mailto:someone@site.org?subject=Cars%20Vs%20Trains&body=Check%20out%20the%20videos%20at%20http://carsvstrains.com" title="Email">Email</a>
-      </div>
+<!-- NO ACCESS SCREEN (YOUR CUSTOM CONTENT) -->
+<div id="noAccess" class="centered">
+    <h1>Access Denied</h1>
+    <p>This content is restricted.</p>
+    <!-- Replace above with whatever you want -->
+</div>
+
+<!-- MAIN SITE -->
+<div id="mainContent">
+    <header style="text-align:center; padding:20px;">
+        <img src="CvT-header-transparent.png" style="max-width:400px;">
     </header>
 
-    <!-- Grid of video thumbnails (replicated from original). Clicking opens in-player overlay using YouTube embed (autoplay). -->
-    <main>
-      <div class="grid" id="videoGrid">
-        <!-- Example thumbnails. Add/remove video blocks to match original list. Thumbnails are pulled from YouTube (no analytics included). -->
-        <!-- Each .youtube anchor has data-yt attribute with the video id -->
-        <div class="video-card">
-          <img class="video--thumbnail" src="https://img.youtube.com/vi/iEA1rLpbedU/maxresdefault.jpg" alt="">
-          <span class="vid-icon">
-            <a href="#" class="youtube" data-yt="iEA1rLpbedU"><img src="images/video-play_btn.svg" alt="play"></a>
-          </span>
-          <span class="share-icon"><img src="images/share-icon.svg" alt="share" width="36"></span>
-        </div>
-
-        <div class="video-card">
-          <img class="video--thumbnail" src="https://img.youtube.com/vi/frP4kb616G4/maxresdefault.jpg" alt="">
-          <span class="vid-icon">
-            <a href="#" class="youtube" data-yt="frP4kb616G4"><img src="images/video-play_btn.svg" alt="play"></a>
-          </span>
-          <span class="share-icon"><img src="images/share-icon.svg" alt="share" width="36"></span>
-        </div>
-
-        <div class="video-card">
-          <img class="video--thumbnail" src="https://img.youtube.com/vi/fZ8GdGLm_qw/maxresdefault.jpg" alt="">
-          <span class="vid-icon">
-            <a href="#" class="youtube" data-yt="fZ8GdGLm_qw"><img src="images/video-play_btn.svg" alt="play"></a>
-          </span>
-          <span class="share-icon"><img src="images/share-icon.svg" alt="share" width="36"></span>
-        </div>
-
-        <!-- Add remaining original video blocks (IDs available in your original HTML) -->
-      </div>
-    </main>
-
-    <footer class="recreation-note">Re-created replica of carsvstrains.com — original content preserved.</footer>
-  </div>
-
-  <!-- CUSTOM NO page (shown after No) -->
-  <div id="customNoPage" style="display:none">
-    <div class="custom-page">
-      <!-- user-provided "furries vs trains" page -->
-      <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg" alt="main">
-      <!-- hidden visitor included previously; but also keep a small footer note -->
-      <footer class="recreation-note" style="margin-top:18px">Re-created replica of carsvstrains.com — this page shown for visitors who selected "No".</footer>
+    <div class="video-grid">
+        <!-- ORIGINAL VIDEO IDS -->
+        <iframe src="https://www.youtube.com/embed/iEA1rLpbedU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/frP4kb616G4" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/fZ8GdGLm_qw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/biu8U4MUGWE" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/T8BdcFa4x80" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/BGXHTrFNwYo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen></iframe>
     </div>
-  </div>
 
-  <!-- Player overlay used to show embedded YouTube when clicking thumbnails -->
-  <div id="playerOverlay" class="player-overlay" role="dialog" aria-hidden="true">
-    <div class="player-close" id="playerClose">✕</div>
-    <div id="playerContainer" style="max-width:100%;width:100%;display:flex;align-items:center;justify-content:center"></div>
-  </div>
+    <footer>
+        Re-created archival version of the original CarsVsTrains site. No affiliation with original owners.
+    </footer>
+</div>
 
-  <!-- Lightweight JS to handle age-check and embedding; NO analytics included -->
-  <script>
-    // Elements
-    const ageOverlay = document.getElementById('ageOverlay');
-    const originalSite = document.getElementById('originalSite');
-    const customNo = document.getElementById('customNoPage');
-    const btnYes = document.getElementById('ageYes');
-    const btnNo = document.getElementById('ageNo');
+<!-- HIDDEN VISITOR COUNTER -->
+<img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759"
+     style="display:none;">
 
-    // Player UI
-    const playerOverlay = document.getElementById('playerOverlay');
-    const playerContainer = document.getElementById('playerContainer');
-    const playerClose = document.getElementById('playerClose');
+<script>
+function enterSite() {
+    document.getElementById("ageGate").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+}
 
-    // Age button handlers
-    btnYes.addEventListener('click', function(e){
-      e.preventDefault();
-      ageOverlay.style.display = 'none';
-      customNo.style.display = 'none';
-      originalSite.style.display = 'block';
-      window.scrollTo(0,0);
-    });
+function denyAccess() {
+    document.getElementById("ageGate").style.display = "none";
+    document.getElementById("noAccess").style.display = "flex";
+}
 
-    btnNo.addEventListener('click', function(e){
-      e.preventDefault();
-      ageOverlay.style.display = 'none';
-      originalSite.style.display = 'none';
-      customNo.style.display = 'block';
-      window.scrollTo(0,0);
-    });
+window.onload = function() {
+    document.getElementById("ageGate").style.display = "flex";
+};
+</script>
 
-    // Youtube thumbnail click: open iframe player overlay
-    document.addEventListener('click', function(evt){
-      const t = evt.target.closest && evt.target.closest('.youtube, [data-yt]');
-      if(!t) return;
-      evt.preventDefault();
-      const id = t.getAttribute('data-yt') || t.getAttribute('youtube');
-      if(!id) return;
-      openPlayer(id);
-    });
-
-    function openPlayer(videoId){
-      playerContainer.innerHTML = '';
-      const iframe = document.createElement('iframe');
-      iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-      iframe.setAttribute('allowfullscreen','');
-      iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0';
-      playerContainer.appendChild(iframe);
-      playerOverlay.style.display = 'flex';
-      playerOverlay.setAttribute('aria-hidden','false');
-    }
-
-    function closePlayer(){
-      playerOverlay.style.display = 'none';
-      playerOverlay.setAttribute('aria-hidden','true');
-      playerContainer.innerHTML = '';
-    }
-
-    playerClose.addEventListener('click', closePlayer);
-    playerOverlay.addEventListener('click', function(e){
-      if(e.target === playerOverlay) closePlayer();
-    });
-
-    // For accessibility, allow Esc to close player
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape'){
-        if(playerOverlay.style.display === 'flex') closePlayer();
-      }
-    });
-  </script>
 </body>
 </html>
