@@ -1,229 +1,220 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>furries vs trains</title>
-  <!-- original fonts (optional, for closer match) -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700|Roboto+Condensed:400,700">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cars Vs Trains — Age Check</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#0b0b0b;
+      --accent:#f4f4f4;
+      --muted:#e6b800; /* yellow notice */
+      --btn-bg:#333;
+      --btn-border:#666;
+      --btn-radius:6px;
+      --max-width:980px;
+      --page-pad:24px;
+      font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;}
+    body{
+      background: var(--bg);
+      color:var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:var(--page-pad);
+      box-sizing:border-box;
+    }
+    .card{
+      width:100%;
+      max-width:var(--max-width);
+      background:linear-gradient(#0f0f0f,#0b0b0b);
+      border-radius:10px;
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      text-align:center;
+    }
+    .header-img{
+      max-width:320px;
+      width:60%;
+      height:auto;
+      display:block;
+      margin:0 auto 18px;
+    }
+    h1{
+      margin:0 0 18px;
+      font-size:28px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+    .age-buttons{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      margin:14px 0 12px;
+      flex-wrap:wrap;
+    }
+    .age-buttons a{
+      display:inline-block;
+      padding:12px 20px;
+      color:var(--accent);
+      background:var(--btn-bg);
+      border:1px solid var(--btn-border);
+      border-radius:var(--btn-radius);
+      text-decoration:none;
+      font-weight:600;
+      min-width:140px;
+      text-align:center;
+      transition:transform .08s ease, box-shadow .08s ease;
+    }
+    .age-buttons a:active{ transform: translateY(1px); }
+    .age-notice{
+      margin-top:14px;
+      font-size:14px;
+      color:#cfcfcf;
+      line-height:1.4;
+    }
+    .age-notice .notice-yellow{
+      color:var(--muted);
+      font-weight:700;
     }
 
-    body {
-      background: black;
-      font-family: 'Roboto', sans-serif;
-      color: white;
-      height: 100vh;
-      overflow: hidden;              /* no scroll, like original overlay */
+    /* iframe overlay when showing your version */
+    #viewerOverlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.85);
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      box-sizing:border-box;
+      visibility:hidden;
+      opacity:0;
+      transition:opacity .18s ease, visibility .18s;
+    }
+    #viewerOverlay.visible{ visibility:visible; opacity:1; }
+    #viewerFrame{
+      width:100%;
+      max-width:1200px;
+      height:88vh;
+      border:0;
+      border-radius:8px;
+      box-shadow:0 12px 40px rgba(0,0,0,0.7);
+    }
+    .viewer-close{
+      position:absolute;
+      right:28px;
+      top:20px;
+      z-index:10000;
+      background:#222;
+      color:#fff;
+      border:1px solid #333;
+      padding:8px 12px;
+      border-radius:6px;
+      cursor:pointer;
     }
 
-    /* both screens use full viewport flex centering */
-    .screen {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.2s ease;
-    }
-
-    /* age gate visible by default */
-    #age-gate {
-      opacity: 1;
-      visibility: visible;
-      background: black;            /* ensures black behind */
-      z-index: 10;
-    }
-
-    /* main content hidden initially */
-    #main-content {
-      opacity: 0;
-      visibility: hidden;
-      background: black;
-      z-index: 5;
-    }
-
-    /* fade transition when switching */
-    .screen.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .screen.visible {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    /* --- age gate layout (inspired by original) --- */
-    .gate-container {
-      max-width: 800px;
-      width: 90%;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* logo – original image via archive.org (with fallback) */
-    .logo-img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 20px;
-    }
-    .logo-fallback {
-      display: none;
-      font-family: 'Roboto Condensed', sans-serif;
-      font-size: 3rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #ffd966;               /* warm yellow tone */
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 0 #b87c00;
-    }
-    .gate-container h1 {
-      font-family: 'Roboto Condensed', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 400;
-      margin: 30px 0 20px;
-      color: white;
-      letter-spacing: 2px;
-    }
-
-    .age-buttons {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      margin: 30px 0 20px;
-      flex-wrap: wrap;
-    }
-
-    .age-buttons a {
-      font-family: 'Roboto Condensed', sans-serif;
-      background: #f0b71c;           /* original button yellow */
-      color: black;
-      font-weight: 700;
-      font-size: 1.8rem;
-      padding: 15px 40px;
-      text-decoration: none;
-      border-radius: 50px;           /* pill shape */
-      box-shadow: 0 4px 0 #a07900;
-      transition: 0.1s ease;
-      letter-spacing: 1px;
-      border: none;
-      cursor: pointer;
-      min-width: 200px;
-    }
-    .age-buttons a:hover {
-      background: #ffcc33;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 0 #a07900;
-    }
-    .age-buttons a:active {
-      transform: translateY(4px);
-      box-shadow: 0 1px 0 #a07900;
-    }
-
-    hr {
-      border: 1px solid #333;
-      margin: 30px auto;
-      width: 80%;
-    }
-
-    .age-notice {
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: #ddd;
-      margin-top: 20px;
-    }
-    .notice--yellow {
-      color: #f0b71c;
-      font-weight: 700;
-    }
-
-    /* --- main content (your current website) --- */
-    .main-image {
-      max-width: 100%;
-      max-height: 80vh;              /* keep within view */
-      object-fit: contain;
-      border: 2px solid #222;
-      border-radius: 8px;
-    }
-
-    .badge {
-      margin-top: 25px;
-      display: inline-block;
-    }
-
-    /* optional small instruction (can be removed) */
-    .hint {
-      color: #666;
-      margin-top: 20px;
-      font-size: 0.9rem;
+    /* small screens */
+    @media (max-width:520px){
+      h1{ font-size:20px; }
+      .header-img{ width:72%; max-width:260px; }
+      #viewerFrame{ height:86vh; }
     }
   </style>
 </head>
 <body>
+  <div class="card" role="main" aria-labelledby="age-heading">
+    <!-- Logo: uses the file you placed in the repo -->
+    <img src="CvT-header-transparent.png" alt="Cars vs Trains" class="header-img" />
 
-  <!-- AGE GATE SCREEN (original style, stripped down) -->
-  <div id="age-gate" class="screen visible">
-    <div class="gate-container">
-      <!-- original logo (attempt to load from archive, fallback to text) -->
-      <img class="logo-img" 
-           src="https://web.archive.org/web/20180110105847im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/CvT-header-transparent.png" 
-           alt="Cars vs Trains"
-           onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block';">
-      <div class="logo-fallback">CARS VS TRAINS</div>
+    <h1 id="age-heading">ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
 
-      <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
-
-      <div class="age-buttons">
-        <!-- Both buttons trigger the same action: hide age gate, show main image -->
-        <a href="#" onclick="showMainContent(); return false;">Yes, I Am</a>
-        <a href="#" onclick="showMainContent(); return false;">No, I'm Not</a>
-      </div>
-
-      <hr>
-
-      <p class="age-notice">
-        <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
-        You don’t ever want to get hit by a train.
-      </p>
+    <div class="age-buttons" aria-hidden="false">
+      <!-- Both buttons intentionally load your version (per request).
+           Their labels mimic the original. -->
+      <a href="#" id="btn-yes" role="button">Yes, I Am</a>
+      <a href="#" id="btn-no" role="button">No, I'm Not</a>
     </div>
+
+    <hr style="border:none;border-top:1px solid #1b1b1b;margin:18px 0 6px;opacity:.6">
+
+    <p class="age-notice">
+      <span class="notice-yellow">NOTICE:</span>
+      The following are real videos.<br>
+      You don’t ever want to get hit by a train.
+    </p>
   </div>
 
-  <!-- MAIN CONTENT SCREEN (your current furries image + visitor badge) -->
-  <div id="main-content" class="screen hidden">
-    <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg" alt="furries vs trains">
-
-    <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com">
-      <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" alt="visitor counter">
-    </a>
-
-    <div class="hint">(you clicked the button – enjoy)</div>
+  <!-- overlayed iframe used to show the user's page content -->
+  <div id="viewerOverlay" aria-hidden="true">
+    <button class="viewer-close" id="closeViewer" aria-label="Close viewer">Close</button>
+    <iframe id="viewerFrame" title="Your page preview"></iframe>
   </div>
 
   <script>
-    // Simple function to swap screens
-    function showMainContent() {
-      document.getElementById('age-gate').classList.remove('visible');
-      document.getElementById('age-gate').classList.add('hidden');
-      document.getElementById('main-content').classList.remove('hidden');
-      document.getElementById('main-content').classList.add('visible');
+    // Your supplied "my version" HTML. Kept verbatim (slight tidy-up).
+    const myVersionHTML = `<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>furries vs trains</title>
+  <style>
+    html,body{height:100%;margin:0;background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:24px;box-sizing:border-box}
+    .main-image{max-width:100%;max-height:75vh;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+    .badge{margin-top:18px}
+    .badge img{border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg" alt="main">
+    <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com" target="_blank" rel="noopener">
+      <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" alt="visitors">
+    </a>
+  </div>
+</body>
+</html>`;
+
+    // Elements
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo  = document.getElementById('btn-no');
+    const overlay = document.getElementById('viewerOverlay');
+    const iframe = document.getElementById('viewerFrame');
+    const closeBtn = document.getElementById('closeViewer');
+
+    function showMyVersion(){
+      // use srcdoc to render the provided HTML inside the iframe
+      iframe.srcdoc = myVersionHTML;
+      overlay.classList.add('visible');
+      overlay.setAttribute('aria-hidden','false');
     }
 
-    // (Optional) If you ever want to go back, but not needed.
-    // Both buttons do exactly the same – showing the furry image.
-    // All analytics, social buttons, email forms, and extra scripts are removed.
-  </script>
+    btnYes.addEventListener('click', function(e){
+      e.preventDefault();
+      showMyVersion();
+    });
+    btnNo.addEventListener('click', function(e){
+      e.preventDefault();
+      showMyVersion();
+    });
 
-  <!-- NO tracking, no social buttons, no garbage. Exactly what you asked for. -->
+    closeBtn.addEventListener('click', function(){
+      overlay.classList.remove('visible');
+      overlay.setAttribute('aria-hidden','true');
+      iframe.srcdoc = 'about:blank';
+    });
+
+    // allow click outside iframe to close (optional)
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay) {
+        closeBtn.click();
+      }
+    });
+  </script>
 </body>
 </html>
