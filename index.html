@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-html lang="en">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cars Vs Trains</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="style.css">
 
 <style>
 body {
@@ -15,10 +12,6 @@ body {
     background: #000;
     color: #fff;
     text-align: center;
-    margin:0;
-    font-family: 'Roboto', sans-serif;
-    background:#000;
-    color:#fff;
 }
 
 .overlay {
@@ -29,30 +22,15 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 10;
-#entry-overlay {
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
 }
 
 .box {
     max-width: 600px;
     padding: 40px;
-.entry--wrapper {
-    max-width:700px;
 }
 
 h1 {
     margin-bottom: 20px;
-.title {
-    max-width:500px;
-    width:100%;
-    margin-bottom:30px;
 }
 
 .buttons a {
@@ -62,85 +40,51 @@ h1 {
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
-h1 {
-    font-size:28px;
-    margin-bottom:30px;
 }
 
 .yes {
     background: #d62828;
     color: #fff;
-.age--buttons__wrap a {
-    display:inline-block;
-    margin:10px 20px;
-    padding:15px 30px;
-    text-decoration:none;
-    font-weight:bold;
-    background:#c40000;
-    color:#fff;
-    border-radius:4px;
-    transition:0.2s ease;
 }
 
 .no {
     background: #555;
     color: #fff;
-.age--buttons__wrap a:last-child {
-    background:#444;
 }
 
 .notice {
     margin-top: 25px;
     font-size: 14px;
     color: #f4d35e;
-.age--buttons__wrap a:hover {
-    opacity:0.8;
 }
 
 .content {
     display: none;
     padding: 40px;
-hr {
-    margin:40px 0;
-    border:0;
-    border-top:1px solid #333;
 }
 
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-.age--notice {
-    font-size:14px;
-    line-height:1.6;
 }
 iframe {
     width: 100%;
     height: 200px;
-
-.notice--yellow {
-    color:#f3d20b;
-    font-weight:bold;
 }
 </style>
 </head>
 
-</head>
 <body>
 
 <div class="overlay" id="ageGate">
     <div class="box">
         <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
-<div id="entry-overlay">
-    <div class="entry--wrapper">
-        <header class="header">
-            <img class="title" src="images/CvT-header-transparent.png" alt="Cars vs Trains">
 
         <div class="buttons">
             <a href="#" class="yes" onclick="enterSite()">Yes, I Am</a>
             <a href="https://google.com" class="no">No, I'm Not</a>
         </div>
-            <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
 
         <div class="notice">
             NOTICE: The following are real videos.<br>
@@ -148,12 +92,6 @@ iframe {
         </div>
     </div>
 </div>
-            <div class="age--buttons__wrap">
-                <a href="age-check.html">Yes, I Am</a>
-                <a href="furry.html">No, I'm Not</a>
-            </div>
-
-            <hr>
 
 <div class="content" id="mainContent">
     <h2>Cars Vs Trains</h2>
@@ -168,12 +106,6 @@ iframe {
         <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen></iframe>
-            <p class="age--notice">
-                <span class="notice--yellow">NOTICE:</span>
-                The following are real videos.<br>
-                You don’t ever want to get hit by a train.
-            </p>
-        </header>
     </div>
 </div>
 
