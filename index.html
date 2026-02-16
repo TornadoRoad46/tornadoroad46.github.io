@@ -49,24 +49,37 @@
     <link rel="stylesheet" id="blitzer-ui-css-css" href="https://web.archive.org/web/20181227184606/http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="csx-carsvstrans-style-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css?ver=4.9.6" media="all">
 
-    <!-- Additional styles for video size, gap, footer, fullscreen image -->
+    <!-- Enhanced glassy look for video page -->
     <style>
-        /* Video wrapper with 16:9 aspect ratio (original size) */
+        /* Video wrapper with 16:9 aspect ratio and glassy effect */
         .video-wrapper {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
-            background: #000;
-            /* Add gap between videos */
-            margin: 8px;
+            background: rgba(255,255,255,0.05); /* light glass base */
+            margin: 12px; /* even gap in all directions */
             box-sizing: border-box;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        /* Compensate for margin on pure-g */
+
+        .video-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 25px rgba(255,255,255,0.15);
+            border-color: rgba(255,204,0,0.5);
+        }
+
+        /* Compensate for margin on pure-g to keep outer edges aligned */
         .pure-g {
-            margin: -8px; /* pulls back the outer margin so edges align */
+            margin: -12px; /* pulls back the outer margin so edges align */
         }
+
         .video-wrapper iframe {
             position: absolute;
             top: 0;
@@ -74,6 +87,7 @@
             width: 100%;
             height: 100%;
             border: 0;
+            border-radius: 15px; /* slightly smaller than wrapper to show border */
         }
 
         /* Footer fixed at bottom with original yellow */
@@ -112,13 +126,24 @@
             z-index: 10000;
             display: none;
         }
+
+        /* Age overlay glassy look (optional) */
+        #entry-overlay {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+        .entry--wrapper .header {
+            background: rgba(30,30,30,0.8);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255,204,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
     </style>
 
     <!-- jQuery only (minimal) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
-
-    <!-- All analytics/tracking scripts removed as requested -->
 </head>
 <body>
     <!-- Fullscreen image for "No" button -->
@@ -154,7 +179,7 @@
             </header>
         </div>
 
-        <!-- Main video grid – YouTube embeds, with gaps -->
+        <!-- Main video grid – YouTube embeds with glassy look -->
         <div id="content" class="site-content" style="visibility: hidden;">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
@@ -222,7 +247,7 @@
         <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
             <div style="text-align:center;">
                 Website recreation
-                <!-- Hidden visitor badge (counts visits) - using display:none ensures it's invisible but the request is made -->
+                <!-- Hidden visitor badge (counts visits) -->
                 <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" alt="visitor counter" />
             </div>
         </footer>
@@ -242,16 +267,13 @@
         }
 
         function showFullscreenImage() {
-            // Hide age overlay and show fullscreen image
             document.getElementById('entry-overlay').style.visibility = 'hidden';
             document.getElementById('fullscreen-image').style.display = 'block';
-            // Hide header, content, footer if they were visible (they aren't, but safe)
             document.querySelector('.header--content .header').style.visibility = 'hidden';
             document.getElementById('content').style.visibility = 'hidden';
             document.getElementById('colophon').style.visibility = 'hidden';
         }
 
-        // On page load, ensure overlay visible, content hidden, and no fullscreen image
         (function() {
             document.getElementById('entry-overlay').style.visibility = 'visible';
             document.querySelector('.header--content .header').style.visibility = 'hidden';
@@ -260,14 +282,13 @@
             document.getElementById('fullscreen-image').style.display = 'none';
         })();
 
-        // Optional: click on fullscreen image returns to age prompt (user-friendly)
         document.getElementById('fullscreen-image').onclick = function() {
             this.style.display = 'none';
             document.getElementById('entry-overlay').style.visibility = 'visible';
         };
     </script>
 
-    <!-- wp-embed (optional, but harmless) -->
+    <!-- wp-embed (optional) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
 </body>
 </html>
