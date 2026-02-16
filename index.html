@@ -1,270 +1,121 @@
-<body class="home page page-id-2 page-template page-template-template-home page-template-template-home-php"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
-<script>__wm.rw(0);</script>
-<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr; height: 68px;" toolbar-mode="auto">
-</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20161022115215/http://www.carsvstrains.com:80/</div>
-<script type="text/javascript">//<![CDATA[
-__wm.bt(775,27,25,2,"web","http://www.carsvstrains.com/","20161022115215",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3","https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv"], false);
-  __wm.rw(1);
-//]]></script>
-<!-- END WAYBACK TOOLBAR INSERT -->
- 
-<div id="page" class="site">
-		<div id="entry-overlay" style="visibility: visible;">
-		<div class="entry--wrapper">
-			<header class="header">
-		    	<img class="title" src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/CvT-header-transparent.png" alt="[Cars vs Trains]">
-		    	<h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
-		    	<div class="age--buttons__wrap">
-		    		<script>
-		    			var urlRedirect;
-						if(window.location.hash) {
-							var yID = window.location.hash;
-							urlRedirect = "/age-check"+yID;
-							// <a href="/age-check">Yes, I Am</a><a href="/">No, I'm Not</a>
-							
-						} else{
-							urlRedirect = "/age-check";
-						}
-						document.write('<a href="'+ urlRedirect +'">Yes, I Am</a>');
-		    		</script><a href="/web/20161022115215mp_/http://www.carsvstrains.com/age-check">Yes, I Am</a>
-		    		<!-- <a href="/age-check">Yes, I Am</a>-->
-		    		<a href="/web/20161022115215/http://www.carsvstrains.com/">No, I'm Not</a> 
-		    	</div>
-		    	<hr>
-				
-				<p class="age--notice">
-					<span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
-					You don’t ever want to get hit by a train.
-				</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cars Vs Trains</title>
+  <!-- original styles (loaded from archive.org to keep the exact look) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700|Roboto+Condensed:400,700">
+  <link rel="stylesheet" href="https://web.archive.org/web/20180110105847/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css">
+  <!-- base reset: black background, no overflow -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #000;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Roboto', sans-serif;
+    }
+    /* both layers fill the screen */
+    .screen-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      transition: opacity 0.25s ease;
+    }
+    #entry-overlay {
+      visibility: visible;
+      opacity: 1;
+      z-index: 20;
+      background: black; /* ensures overlay covers content */
+    }
+    #entry-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #main-content {
+      visibility: hidden;
+      opacity: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: black;
+    }
+    #main-content.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+    /* center the image & badge */
+    .main-image {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+      border: 2px solid #222;
+      border-radius: 8px;
+    }
+    .badge {
+      margin-top: 25px;
+      display: inline-block;
+    }
+    /* small hint (can be deleted) */
+    .hint {
+      color: #444;
+      font-size: 0.85rem;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
 
-		    </header>
-			<div class="bottom">
-			    <div class="icons">
-			        <a href="//web.archive.org/web/20161022115215/http://www.facebook.com/share.php?u=http://carsvstrains.com&amp;title=Cars%20Vs%20Trains" target="_blank"><i class="fa fa-facebook"></i></a>
-			        <a href="//web.archive.org/web/20161022115215/http://twitter.com/intent/tweet?status=Cars%20Vs%20Trains+http://carsvstrains.com" target="_blank"><i class="fa fa-twitter"></i></a>
-			        <a href="https://web.archive.org/web/20161022115215/mailto:someone@site.org?subject=Cars%20Vs%20Trains&amp;body=Check%20out%20the%20videos%20at%20http://carsvstrains.com" target="_blank"><i class="fa fa-envelope"></i></a>
-			    </div>
-		    </div>
-		</div>
-	</div>
-	<div class="header--content"> 
-		<header class="header" style="visibility: hidden;">
-	    	<img class="title" src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/CvT-header-transparent.png" alt="[Cars vs Trains]">
-		    <div class="icons">
-		        <span class="sharepage" style="letter-spacing:0px;">Share this page:</span>
-		        <a href="//web.archive.org/web/20161022115215/http://www.facebook.com/share.php?u=http://carsvstrains.com&amp;title=Cars%20Vs%20Trains" target="_blank"><i class="fa fa-facebook"></i></a>
-		        <a href="//web.archive.org/web/20161022115215/http://twitter.com/intent/tweet?status=Cars%20Vs%20Trains+http://carsvstrains.com" target="_blank"><i class="fa fa-twitter"></i></a>
-		        <a href="https://web.archive.org/web/20161022115215/mailto:someone@site.org?subject=Cars%20Vs%20Trains&amp;body=Check%20out%20the%20videos%20at%20http://carsvstrains.com" target="_blank"><i class="fa fa-envelope"></i></a>
-		    </div>
-	    </header>
-	</div>
-    	<div id="content" class="site-content" style="visibility: hidden;">
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-			
-			<div class="pure-g">
-				 
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/iEA1rLpbedU/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="iEA1rLpbedU" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="iEA1rLpbedU" data-popup-ordinal="0" id="open_27070044">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-					
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/frP4kb616G4/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="frP4kb616G4" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="frP4kb616G4" data-popup-ordinal="1" id="open_99616769">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-					
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/fZ8GdGLm_qw/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="fZ8GdGLm_qw" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="fZ8GdGLm_qw" data-popup-ordinal="2" id="open_56705675">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-					
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/biu8U4MUGWE/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="biu8U4MUGWE" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="biu8U4MUGWE" data-popup-ordinal="3" id="open_40620713">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-					
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/T8BdcFa4x80/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="T8BdcFa4x80" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="T8BdcFa4x80" data-popup-ordinal="4" id="open_34386574">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-					
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/BGXHTrFNwYo/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="BGXHTrFNwYo" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="BGXHTrFNwYo" data-popup-ordinal="5" id="open_50657578">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-					
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/XoaOz6FsVPk/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="XoaOz6FsVPk" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="XoaOz6FsVPk" data-popup-ordinal="6" id="open_87273233">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-					
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/0sxg-lYABXo/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="0sxg-lYABXo" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="0sxg-lYABXo" data-popup-ordinal="7" id="open_49480452">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-					
-
-					<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-				        <div class="l-box video-wrapper">
-				        					            <img src="https://web.archive.org/web/20161022115215im_/http://img.youtube.com/vi/_c28oIaGUkA/maxresdefault.jpg" class="video--thumbnail">
-			        	  	<span class="vid-icon">
-			        	  		<a href="#" youtube="_c28oIaGUkA" class="youtube">
-						      		<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/video-play_btn.svg" width="80" height="80" alt="Zoom">
-						      	</a>
-						  	</span>
-			        	  	<span class="share-icon basic_open" data-id="_c28oIaGUkA" data-popup-ordinal="8" id="open_38822445">
-						      	<img src="/web/20161022115215im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/share-icon.svg" width="60" height="60" alt="Zoom">
-						  	</span>
-				        </div>
-				    </div>
-
-								
-
-			    
-
-			    
-			</div>
-
-			
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
-		<div class="container">
-			<!-- <div class="Row2"> -->
-            <div id="emailer" class="position">
-                <div class="icons followus">
-                    <span style="letter-spacing:0px;">Follow us:</span>
-                    <a href="https://web.archive.org/web/20161022115215/https://www.facebook.com/carsvstrains/?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a href="https://web.archive.org/web/20161022115215/https://twitter.com/carsvstrains" target="_blank"><i class="fa fa-twitter"></i></a>
-                </div>
-                <div class="emailSubmit">
-                    <div class="email-label ">Email me when new videos have been posted</div>
-                    <!-- <input type="email" name="email">
-                    <button type="submit"></button> -->
-                    <div role="form" class="wpcf7" id="wpcf7-f6-o1" lang="en-US" dir="ltr">
-<div class="screen-reader-response"></div>
-<form action="/web/20161022115215/http://www.carsvstrains.com/#wpcf7-f6-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-<div style="display: none;">
-<input type="hidden" name="_wpcf7" value="6">
-<input type="hidden" name="_wpcf7_version" value="4.4.2">
-<input type="hidden" name="_wpcf7_locale" value="en_US">
-<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f6-o1">
-<input type="hidden" name="_wpnonce" value="9bab9319fc">
-</div>
-<p><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"></span><button type="submit" class="btn btn-success"><i class="icon-circle-arrow-right icon-large"></i></button></p>
-<div class="wpcf7-response-output wpcf7-display-none"></div></form></div>                </div>
-            </div>
+  <!-- ORIGINAL AGE GATE (exact structure, stripped of social icons & scripts) -->
+  <div id="entry-overlay" class="screen-layer">
+    <div class="entry--wrapper">
+      <header class="header">
+        <!-- original logo from archive -->
+        <img class="title" src="https://web.archive.org/web/20180110105847im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/CvT-header-transparent.png" alt="[Cars vs Trains]">
+        <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
+        <div class="age--buttons__wrap">
+          <!-- static buttons: both trigger showMainContent(), no redirects, no analytics -->
+          <a href="javascript:void(0)" onclick="showMainContent(); return false;">Yes, I Am</a>
+          <a href="javascript:void(0)" onclick="showMainContent(); return false;">No, I'm Not</a>
         </div>
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+        <hr>
+        <p class="age--notice">
+          <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
+          You don’t ever want to get hit by a train.
+        </p>
+      </header>
+      <!-- bottom icons (facebook/twitter/mail) removed as requested -->
+    </div>
+  </div>
 
-<script type="text/javascript">
-/* <![CDATA[ */
-var postvidpop = {"ajax_url":"https:\/\/web.archive.org\/web\/20161022115215\/http:\/\/www.carsvstrains.com\/wp-admin\/admin-ajax.php"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://web.archive.org/web/20161022115215js_/http://www.carsvstrains.com/wp-content/plugins/video-popup/vidpop.js?ver=1.0"></script>
-<script type="text/javascript" src="https://web.archive.org/web/20161022115215js_/https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js?ver=20151215"></script>
-<script type="text/javascript" src="https://web.archive.org/web/20161022115215js_/http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js?ver=20151215"></script>
-<script type="text/javascript" src="https://web.archive.org/web/20161022115215js_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/js/main.js?ver=20151215"></script>
-<script type="text/javascript" src="https://web.archive.org/web/20161022115215js_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/js/jquery.youtubepopup.js?ver=20151215"></script>
-<script type="text/javascript" src="https://web.archive.org/web/20161022115215js_/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.5.3"></script>
+  <!-- YOUR MAIN CONTENT (what you want to show after button click) -->
+  <div id="main-content" class="screen-layer">
+    <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg" alt="furries vs trains">
+    <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com">
+      <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" alt="visitor counter">
+    </a>
+    <!-- optional tiny hint (you can delete this line) -->
+    <div class="hint">(age gate passed – enjoy)</div>
+  </div>
 
+  <!-- single function to swap layers -->
+  <script>
+    function showMainContent() {
+      document.getElementById('entry-overlay').classList.add('hidden');
+      document.getElementById('main-content').classList.add('visible');
+    }
+  </script>
 
-
-
-<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front YouTubeDialog" style="display: none;" tabindex="-1" role="dialog" aria-describedby="ui-id-1" aria-labelledby="ui-id-2"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div style="padding: 0px;" id="ui-id-1" class="ui-dialog-content ui-widget-content"></div></div><div id="basic_background" class="popup_background" style="opacity: 0; visibility: hidden; background-color: rgb(0, 0, 0); position: fixed; inset: 0px; z-index: 100000;"></div><div id="basic_wrapper" class="popup_wrapper" style="opacity: 0; visibility: hidden; position: fixed; overflow: auto; z-index: 100001; width: 100%; height: 100%; top: 0px; left: 0px; text-align: center; display: none;"><div id="basic" class="well popup_content" style="max-width: 44em; opacity: 0; visibility: hidden; display: inline-block; outline: none; text-align: left; position: relative; vertical-align: middle;" data-popup-initialized="true" aria-hidden="true" role="dialog" aria-labelledby="open_27070044"></div><div class="popup_align" style="display: inline-block; vertical-align: middle; height: 100%;"></div></div></body>
+  <!-- everything else (analytics, social widgets, email forms, extra scripts) removed -->
+</body>
+</html>
