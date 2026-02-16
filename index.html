@@ -1,51 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cars Vs Trains</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cars Vs Trains</title>
+
+  <!-- Fonts + icons -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Condensed:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{--accent:#f0c040;--bg:#fff;--muted:#666}
+    html,body{height:100%;margin:0;font-family:Roboto, Arial, sans-serif;background:var(--bg);color:#222}
+    .site{max-width:1100px;margin:0 auto;padding:28px}
+    header.header{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:18px}
+    header .title{max-width:520px;width:100%;height:auto}
+    h1{font-family:"Roboto Condensed", Roboto, sans-serif;margin:14px 0 8px;font-size:26px;letter-spacing:1px}
+    .age--buttons__wrap{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:8px 0}
+    .age--buttons__wrap a.button{display:inline-block;padding:12px 20px;border-radius:4px;text-decoration:none;color:#fff;background:#333;font-weight:600}
+    .age--buttons__wrap a.button.yes{background:#2b7bd6}
+    .age--buttons__wrap a.button.no{background:#777}
+    hr{width:80%;border:none;border-top:1px solid #eee;margin:16px 0}
+    .age--notice{color:var(--muted);font-size:14px}
+    .age--notice .notice--yellow{color:var(--accent);font-weight:700;margin-right:6px}
+    .icons{margin-top:10px}
+    .icons a{color:#444;margin:0 8px;text-decoration:none;font-size:18px}
+
+    /* Grid for thumbnails */
+    .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
+    .video-wrapper{position:relative;overflow:hidden;border-radius:6px;background:#000;color:#fff}
+    .video-wrapper img{width:100%;height:auto;display:block}
+    .play-overlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center}
+    .play-overlay:after{content:'';display:block;width:0;height:0;border-left:18px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
+    .share-icon{position:absolute;right:8px;bottom:8px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.95);border-radius:6px}
+    footer{margin-top:36px;text-align:center;color:var(--muted);font-size:13px}
+    /* small screens */
+    @media (max-width:520px){h1{font-size:20px}}
+  </style>
 </head>
 <body>
+  <div class="site">
+    <header class="header">
+      <!-- use the logo file you put in the repo root -->
+      <img class="title" src="CvT-header-transparent.png" alt="Cars vs Trains logo">
+      <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
 
-<div class="overlay" id="ageGate">
-    <div class="box">
-        <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
+      <div class="age--buttons__wrap">
+        <!-- the small script below preserves any hash and points to age-check.html -->
+        <a href="age-check.html" class="button yes" id="yesBtn">Yes, I Am</a>
+        <a href="/" class="button no">No, I'm Not</a>
+      </div>
 
-        <div class="buttons">
-            <a href="#" class="yes" onclick="enterSite()">Yes, I Am</a>
-            <a href="https://google.com" class="no">No, I'm Not</a>
+      <hr>
+
+      <p class="age--notice">
+        <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
+        You don’t ever want to get hit by a train.
+      </p>
+
+      <div class="icons" aria-hidden="true">
+        <a href="https://www.facebook.com/share.php?u=http://carsvstrains.com" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com/intent/tweet?status=Cars%20Vs%20Trains+http://carsvstrains.com" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
+        <a href="mailto:someone@site.org?subject=Cars%20Vs%20Trains&body=Check%20out%20the%20videos%20at%20http://carsvstrains.com" target="_blank" rel="noopener"><i class="fa fa-envelope"></i></a>
+      </div>
+    </header>
+
+    <!-- Videos grid: thumbnails link directly to YouTube (opens in new tab) -->
+    <main>
+      <div class="videos">
+        <!-- Example video card pattern; keep the original video IDs the site used -->
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=iEA1rLpbedU" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/iEA1rLpbedU/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
         </div>
 
-        <div class="notice">
-            NOTICE: The following are real videos.<br>
-            You don’t ever want to get hit by a train.
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=frP4kb616G4" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/frP4kb616G4/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
         </div>
-    </div>
-</div>
 
-<div class="content" id="mainContent">
-    <h2>Cars Vs Trains</h2>
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=fZ8GdGLm_qw" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/fZ8GdGLm_qw/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        </div>
 
-    <div class="video-grid">
-        <iframe src="https://www.youtube.com/embed/iEA1rLpbedU" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/frP4kb616G4" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/fZ8GdGLm_qw" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/biu8U4MUGWE" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/T8BdcFa4x80" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/BGXHTrFNwYo" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen></iframe>
-    </div>
-</div>
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=biu8U4MUGWE" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/biu8U4MUGWE/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        </div>
 
-<script>
-function enterSite() {
-    document.getElementById("ageGate").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
-}
-</script>
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=T8BdcFa4x80" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/T8BdcFa4x80/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        </div>
 
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=BGXHTrFNwYo" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/BGXHTrFNwYo/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        </div>
+
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=XoaOz6FsVPk" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/XoaOz6FsVPk/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        </div>
+
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=0sxg-lYABXo" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/0sxg-lYABXo/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        </div>
+
+        <div class="video-wrapper">
+          <a href="https://www.youtube.com/watch?v=_c28oIaGUkA" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/_c28oIaGUkA/maxresdefault.jpg" alt="video thumbnail">
+            <span class="play-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      © Cars Vs Trains — converted for GitHub Pages. Contact: someone@site.org
+    </footer>
+  </div>
+
+  <script>
+    // Preserve any hash and set the Yes button to age-check.html[hash]
+    (function(){
+      var yes = document.getElementById('yesBtn');
+      if(!yes) return;
+      var h = window.location.hash || '';
+      // Use a simple local age-check page on GitHub Pages
+      yes.href = 'age-check.html' + h;
+    })();
+  </script>
 </body>
 </html>
