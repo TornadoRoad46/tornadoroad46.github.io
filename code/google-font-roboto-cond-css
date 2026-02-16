@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed'), local('RobotoCondensed-Regular'), url(https://web.archive.org/web/20181224154423im_/https://fonts.gstatic.com/s/robotocondensed/v16/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7CA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(https://web.archive.org/web/20181224154423im_/https://fonts.gstatic.com/s/robotocondensed/v16/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCQYag.ttf) format('truetype');
+}
+
+/*
+     FILE ARCHIVED ON 15:44:23 Dec 24, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:52:30 Feb 16, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.634
+  exclusion.robots: 0.02
+  exclusion.robots.policy: 0.009
+  esindex: 0.012
+  cdx.remote: 12.99
+  LoadShardBlock: 116.11 (3)
+  PetaboxLoader3.datanode: 153.357 (5)
+  PetaboxLoader3.resolve: 165.436 (3)
+  load_resource: 224.762 (2)
+*/
