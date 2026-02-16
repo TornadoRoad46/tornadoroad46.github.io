@@ -1,126 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cars Vs Trains</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cars Vs Trains</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: #fff;
-    text-align: center;
-}
+    <!-- External Styles (most are still available) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700">
+    <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/redmond/jquery-ui.css">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css">
+    
+    <!-- Local main stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
-/* Age Gate */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
+    <!-- jQuery (required for popups) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
-.box {
-    max-width: 600px;
-    padding: 40px;
-}
+    <!-- Video popup plugin (from original, but you can replace with a simple solution) -->
+    <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+    <!-- Your custom scripts -->
+    <script src="main.js"></script>
+    <script src="jquery.youtubepopup.js"></script>
 
-h1 {
-    margin-bottom: 20px;
-}
-
-.buttons a {
-    display: inline-block;
-    margin: 15px;
-    padding: 15px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.yes {
-    background: #d62828;
-    color: #fff;
-}
-
-.no {
-    background: #555;
-    color: #fff;
-}
-
-.notice {
-    margin-top: 25px;
-    font-size: 14px;
-    color: #f4d35e;
-}
-
-/* Main Content */
-.content {
-    display: none;
-    padding: 40px;
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-iframe {
-    width: 100%;
-    height: 200px;
-}
-</style>
+    <style>
+        /* Small fix: ensure overlay is above everything */
+        #entry-overlay { z-index: 1000; }
+        .header--content, #content { visibility: hidden; }
+        /* Cookie notice style (optional) */
+        .age--notice small { display: block; margin-top: 10px; color: #ccc; }
+    </style>
 </head>
-
 <body>
 
-<!-- Age Verification -->
-<div class="overlay" id="ageGate">
-    <div class="box">
-        <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
+<div id="page" class="site">
 
-        <div class="buttons">
-            <a class="yes" onclick="enterSite()">Yes, I Am</a>
-            <a class="no" href="https://google.com">No, I'm Not</a>
-        </div>
-
-        <div class="notice">
-            NOTICE: The following are real videos.<br>
-            You don’t ever want to get hit by a train.
+    <!-- AGE VERIFICATION OVERLAY -->
+    <div id="entry-overlay" style="visibility: visible;">
+        <div class="entry--wrapper">
+            <header class="header">
+                <!-- Logo – updated path -->
+                <img class="title" src="images/CvT-header-transparent.png" alt="Cars vs Trains">
+                <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
+                <div class="age--buttons__wrap">
+                    <!-- Static buttons, handled by JavaScript -->
+                    <a href="#" id="age-yes">Yes, I Am</a>
+                    <a href="#" id="age-no">No, I'm Not</a>
+                </div>
+                <hr>
+                <p class="age--notice">
+                    <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
+                    You don’t ever want to get hit by a train.
+                </p>
+            </header>
+            <div class="bottom">
+                <div class="icons">
+                    <a href="https://www.facebook.com/share.php?u=http://carsvstrains.com&amp;title=Cars%20Vs%20Trains" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/intent/tweet?status=Cars%20Vs%20Trains+http://carsvstrains.com" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="mailto:?subject=Cars%20Vs%20Trains&amp;body=Check%20out%20the%20videos%20at%20http://carsvstrains.com" target="_blank"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Main Content -->
-<div class="content" id="mainContent">
-    <h2>Cars Vs Trains</h2>
-
-    <div class="video-grid">
-        <iframe src="https://www.youtube.com/embed/iEA1rLpbedU" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/frP4kb616G4" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/fZ8GdGLm_qw" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/biu8U4MUGWE" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/T8BdcFa4x80" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/BGXHTrFNwYo" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen></iframe>
+    <!-- HEADER (hidden until age verified) -->
+    <div class="header--content">
+        <header class="header" style="visibility: hidden;">
+            <img class="title" src="images/CvT-header-transparent.png" alt="Cars vs Trains">
+            <div class="icons">
+                <span class="sharepage">Share this page:</span>
+                <a href="https://www.facebook.com/share.php?u=http://carsvstrains.com&amp;title=Cars%20Vs%20Trains" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/intent/tweet?status=Cars%20Vs%20Trains+http://carsvstrains.com" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="mailto:?subject=Cars%20Vs%20Trains&amp;body=Check%20out%20the%20videos%20at%20http://carsvstrains.com" target="_blank"><i class="fa fa-envelope"></i></a>
+            </div>
+        </header>
     </div>
+
+    <!-- MAIN CONTENT (hidden until age verified) -->
+    <div id="content" class="site-content" style="visibility: hidden;">
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
+                <div class="pure-g">
+                    <!-- Video entries (keep as many as you like) -->
+                    <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+                        <div class="l-box video-wrapper">
+                            <img src="https://img.youtube.com/vi/iEA1rLpbedU/maxresdefault.jpg" class="video--thumbnail">
+                            <span class="vid-icon">
+                                <a href="#" youtube="iEA1rLpbedU" class="youtube">
+                                    <img src="images/video-play_btn.svg" width="80" height="80" alt="Play">
+                                </a>
+                            </span>
+                            <span class="share-icon basic_open" data-id="iEA1rLpbedU">
+                                <img src="images/share-icon.svg" width="60" height="60" alt="Share">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Repeat for other videos (frP4kb616G4, fZ8GdGLm_qw, etc.) -->
+                    <!-- ... -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
+        <div class="container">
+            <div id="emailer" class="position">
+                <div class="icons followus">
+                    <span>Follow us:</span>
+                    <a href="https://www.facebook.com/carsvstrains/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/carsvstrains" target="_blank"><i class="fa fa-twitter"></i></a>
+                </div>
+                <div class="emailSubmit">
+                    <div class="email-label">Email me when new videos have been posted</div>
+                    <!-- Static placeholder – you can replace with a real form later -->
+                    <p><em>(Email signup disabled in this static version)</em></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
+<!-- AGE GATE SCRIPT (cookie-based) -->
 <script>
-function enterSite() {
-    document.getElementById("ageGate").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
-}
+    (function() {
+        // Cookie helpers
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        var overlay = document.getElementById('entry-overlay');
+        var headerContent = document.querySelector('.header--content .header');
+        var mainContent = document.getElementById('content');
+        var footer = document.getElementById('colophon');
+
+        function showContent() {
+            overlay.style.visibility = 'hidden';
+            if (headerContent) headerContent.style.visibility = 'visible';
+            if (mainContent) mainContent.style.visibility = 'visible';
+            if (footer) footer.style.visibility = 'visible';
+        }
+
+        // Check for existing cookie
+        if (getCookie('age_verified') === 'yes') {
+            showContent();
+        } else {
+            // Show overlay (it's already visible by default)
+            overlay.style.visibility = 'visible';
+        }
+
+        // Handle "Yes" button
+        document.getElementById('age-yes').addEventListener('click', function(e) {
+            e.preventDefault();
+            setCookie('age_verified', 'yes', 30); // remember for 30 days
+            showContent();
+        });
+
+        // Handle "No" button – redirect to a safe page (e.g., Google)
+        document.getElementById('age-no').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'https://www.google.com';
+        });
+    })();
 </script>
 
+<!-- Optional: your original main.js and jquery.youtubepopup.js should be included above -->
 </body>
 </html>
