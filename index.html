@@ -6,186 +6,114 @@
 <title>Cars Vs Trains</title>
 
 <style>
-* {
-    box-sizing: border-box;
+body {
     margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    text-align: center;
 }
 
-body {
-    background: #000;
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.box {
+    max-width: 600px;
+    padding: 40px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.buttons a {
+    display: inline-block;
+    margin: 15px;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.yes {
+    background: #d62828;
     color: #fff;
 }
 
-header {
-    text-align: center;
-    padding: 30px 20px;
+.no {
+    background: #555;
+    color: #fff;
 }
 
-header img {
-    max-width: 320px;
-    width: 100%;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 30px;
-}
-
-.video {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 6px;
-}
-
-.video img {
-    width: 100%;
-    display: block;
-}
-
-.play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70px;
-    height: 70px;
-    background: rgba(0,0,0,0.7);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.play-btn:after {
-    content: '';
-    border-left: 20px solid white;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
+.notice {
+    margin-top: 25px;
     font-size: 14px;
-    color: #aaa;
+    color: #f4d35e;
 }
 
-#age-overlay {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    text-align: center;
-    padding: 20px;
+.content {
+    display: none;
+    padding: 40px;
 }
 
-.age-box {
-    max-width: 400px;
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
-
-.age-box h1 {
-    margin: 20px 0;
-}
-
-.age-box button {
-    margin: 10px;
-    padding: 10px 20px;
-    background: #fff;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.age-box button:hover {
-    background: #ccc;
+iframe {
+    width: 100%;
+    height: 200px;
 }
 </style>
 </head>
 
 <body>
 
-<div id="age-overlay">
-    <div class="age-box">
-        <img src="/images/CvT-header-transparent.png" alt="Cars Vs Trains">
-        <h1>Are you at least 18 years of age?</h1>
-        <button onclick="verifyAge()">Yes, I Am</button>
-        <button onclick="denyAge()">No</button>
-        <p style="margin-top:15px;font-size:14px;color:#aaa;">
-            These are real train collision videos.
-        </p>
+<div class="overlay" id="ageGate">
+    <div class="box">
+        <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
+
+        <div class="buttons">
+            <a href="#" class="yes" onclick="enterSite()">Yes, I Am</a>
+            <a href="https://google.com" class="no">No, I'm Not</a>
+        </div>
+
+        <div class="notice">
+            NOTICE: The following are real videos.<br>
+            You don’t ever want to get hit by a train.
+        </div>
     </div>
 </div>
 
-<header>
-    <img src="/images/CvT-header-transparent.png" alt="Cars Vs Trains">
-</header>
+<div class="content" id="mainContent">
+    <h2>Cars Vs Trains</h2>
 
-<main class="grid" id="video-grid"></main>
-
-<footer>
-    © 2026 CarsVsTrains.com — Stay off the tracks.
-</footer>
+    <div class="video-grid">
+        <iframe src="https://www.youtube.com/embed/iEA1rLpbedU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/frP4kb616G4" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/fZ8GdGLm_qw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/biu8U4MUGWE" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/T8BdcFa4x80" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/BGXHTrFNwYo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen></iframe>
+    </div>
+</div>
 
 <script>
-const videos = [
-    "iEA1rLpbedU",
-    "frP4kb616G4",
-    "fZ8GdGLm_qw",
-    "biu8U4MUGWE",
-    "T8BdcFa4x80",
-    "BGXHTrFNwYo",
-    "XoaOz6FsVPk",
-    "0sxg-lYABXo",
-    "_c28oIaGUkA"
-];
-
-function createVideo(id) {
-    const wrapper = document.createElement("div");
-    wrapper.className = "video";
-    wrapper.innerHTML = `
-        <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg">
-        <div class="play-btn"></div>
-    `;
-    wrapper.onclick = () => {
-        wrapper.innerHTML = `
-            <iframe width="100%" height="315"
-            src="https://www.youtube.com/embed/${id}?autoplay=1"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        `;
-    };
-    return wrapper;
+function enterSite() {
+    document.getElementById("ageGate").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
 }
-
-function loadVideos() {
-    const grid = document.getElementById("video-grid");
-    videos.forEach(id => grid.appendChild(createVideo(id)));
-}
-
-function verifyAge() {
-    localStorage.setItem("ageVerified", "true");
-    document.getElementById("age-overlay").style.display = "none";
-}
-
-function denyAge() {
-    window.location.href = "https://google.com";
-}
-
-window.onload = function() {
-    loadVideos();
-    if (localStorage.getItem("ageVerified") === "true") {
-        document.getElementById("age-overlay").style.display = "none";
-    }
-};
 </script>
 
 </body>
