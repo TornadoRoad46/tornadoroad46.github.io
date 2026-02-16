@@ -1,121 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cars Vs Trains</title>
-  <!-- original styles (loaded from archive.org to keep the exact look) -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700|Roboto+Condensed:400,700">
-  <link rel="stylesheet" href="https://web.archive.org/web/20180110105847/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css">
-  <!-- base reset: black background, no overflow -->
+  <title>furries vs trains</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Reset and base */
     body {
-      background: #000;
-      height: 100vh;
-      overflow: hidden;
-      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: black;
+      font-family: Arial, sans-serif;
     }
-    /* both layers fill the screen */
-    .screen-layer {
-      position: absolute;
+
+    /* The age gate overlay */
+    #entry-overlay {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
-      transition: opacity 0.25s ease;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      visibility: visible; /* Shown by default */
     }
-    #entry-overlay {
-      visibility: visible;
-      opacity: 1;
-      z-index: 20;
-      background: black; /* ensures overlay covers content */
+
+    .entry--wrapper {
+      text-align: center;
+      color: white;
+      max-width: 600px;
+      padding: 20px;
     }
-    #entry-overlay.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+
+    .header h1 {
+      font-size: 2em;
+      margin: 20px 0;
+      color: #ffcc00;
     }
+
+    .age--buttons__wrap {
+      margin: 30px 0;
+    }
+
+    .age--buttons__wrap a {
+      display: inline-block;
+      padding: 15px 40px;
+      margin: 0 15px;
+      background: #ffcc00;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .age--buttons__wrap a:hover {
+      background: #ffaa00;
+    }
+
+    .age--notice {
+      font-size: 0.9em;
+      color: #ccc;
+      margin-top: 20px;
+    }
+
+    .notice--yellow {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+
+    hr {
+      border: 1px solid #333;
+      width: 80%;
+    }
+
+    /* Main content (hidden until Yes is clicked) */
     #main-content {
       visibility: hidden;
-      opacity: 0;
-      z-index: 10;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: black;
     }
-    #main-content.visible {
-      visibility: visible;
-      opacity: 1;
-    }
-    /* center the image & badge */
+
     .main-image {
-      max-width: 90%;
-      max-height: 80vh;
+      max-width: 100%;
+      max-height: 90vh;
       object-fit: contain;
-      border: 2px solid #222;
-      border-radius: 8px;
     }
+
     .badge {
-      margin-top: 25px;
-      display: inline-block;
+      margin-top: 20px;
     }
-    /* small hint (can be deleted) */
-    .hint {
-      color: #444;
-      font-size: 0.85rem;
-      margin-top: 15px;
+
+    /* Optional: style for the "No" button if you want a different effect */
+    .no-button {
+      /* Keep as is */
     }
   </style>
 </head>
 <body>
 
-  <!-- ORIGINAL AGE GATE (exact structure, stripped of social icons & scripts) -->
-  <div id="entry-overlay" class="screen-layer">
+  <!-- Age Gate Overlay -->
+  <div id="entry-overlay">
     <div class="entry--wrapper">
       <header class="header">
-        <!-- original logo from archive -->
-        <img class="title" src="https://web.archive.org/web/20180110105847im_/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/images/CvT-header-transparent.png" alt="[Cars vs Trains]">
+        <!-- You can replace this with your own header image or text -->
+        <h1 style="font-size: 3em; margin-bottom: 0;">🚂 furries vs trains 🐾</h1>
         <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
         <div class="age--buttons__wrap">
-          <!-- static buttons: both trigger showMainContent(), no redirects, no analytics -->
-          <a href="javascript:void(0)" onclick="showMainContent(); return false;">Yes, I Am</a>
-          <a href="javascript:void(0)" onclick="showMainContent(); return false;">No, I'm Not</a>
+          <a href="#" id="yes-button">Yes, I Am</a>
+          <a href="#" id="no-button" class="no-button">No, I'm Not</a>
         </div>
         <hr>
         <p class="age--notice">
-          <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
-          You don’t ever want to get hit by a train.
+          <span class="notice--yellow">NOTICE:</span> The following content is for mature furries.<br>
+          You don’t ever want to get hit by a train—or a furry.
         </p>
       </header>
-      <!-- bottom icons (facebook/twitter/mail) removed as requested -->
     </div>
   </div>
 
-  <!-- YOUR MAIN CONTENT (what you want to show after button click) -->
-  <div id="main-content" class="screen-layer">
-    <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg" alt="furries vs trains">
+  <!-- Main Content (hidden initially) -->
+  <div id="main-content">
+    <img class="main-image" src="https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg" alt="Furry art">
     <a class="badge" href="https://visitorbadge.io/status?path=carsvstrains.com">
-      <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" alt="visitor counter">
+      <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" alt="Visitor badge">
     </a>
-    <!-- optional tiny hint (you can delete this line) -->
-    <div class="hint">(age gate passed – enjoy)</div>
   </div>
 
-  <!-- single function to swap layers -->
   <script>
-    function showMainContent() {
-      document.getElementById('entry-overlay').classList.add('hidden');
-      document.getElementById('main-content').classList.add('visible');
-    }
+    // Handle Yes button: hide overlay, show content
+    document.getElementById('yes-button').addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent any link navigation
+      document.getElementById('entry-overlay').style.visibility = 'hidden';
+      document.getElementById('main-content').style.visibility = 'visible';
+    });
+
+    // Handle No button: you can make it do something funny, like redirect to a video
+    document.getElementById('no-button').addEventListener('click', function(e) {
+      e.preventDefault();
+      // Option 1: Just reload the page (same as original)
+      location.reload();
+      // Option 2: Redirect to a funny YouTube video (uncomment below)
+      // window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    });
+
+    // Optional: If you want the overlay to be hidden automatically if the user already verified (using session storage)
+    // But for simplicity, we'll keep it as is.
   </script>
 
-  <!-- everything else (analytics, social widgets, email forms, extra scripts) removed -->
+  <!-- Optional: Add any footer or extra elements from the original if you like -->
 </body>
 </html>
