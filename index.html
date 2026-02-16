@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link rel="pingback" href="http://www.carsvstrains.com/xmlrpc.php">
     <title>Cars Vs Trains</title>
 
-    <!-- Original WP emoji script (unchanged) -->
+    <!-- Original emoji script (unchanged) -->
     <script type="text/javascript">
         window._wpemojiSettings = {
             "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/",
@@ -39,7 +38,7 @@
         }
     </style>
 
-    <!-- Original styles – all via Wayback (Dec 2018) to preserve look -->
+    <!-- Original styles (via Wayback) to preserve look -->
     <link rel="stylesheet" id="oba_youtubepopup_css-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/plugins/video-popup/css/YouTubePopUp.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="font-awesome-css" href="https://web.archive.org/web/20181227184606/http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="google-font-roboto-css" href="https://web.archive.org/web/20181227184606/http://fonts.googleapis.com/css?family=Roboto:400,300,500,700&ver=4.9.6" media="all">
@@ -50,15 +49,71 @@
     <link rel="stylesheet" id="blitzer-ui-css-css" href="https://web.archive.org/web/20181227184606/http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="csx-carsvstrans-style-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css?ver=4.9.6" media="all">
 
-    <!-- Only keep essential JS (jQuery, YouTubePopUp might be unused but safe) -->
+    <!-- Additional styles for video size, footer, and fullscreen image -->
+    <style>
+        /* Video wrapper with 16:9 aspect ratio (original size) */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer fixed at bottom with original yellow */
+        #colophon {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffcc00; /* cars-vs-trains yellow */
+            color: #000;
+            text-align: center;
+            padding: 12px 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 16px;
+            z-index: 1000;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+        }
+        /* Ensure content doesn't hide behind footer */
+        body {
+            margin-bottom: 60px; /* match footer height */
+        }
+        /* Hidden visitor badge */
+        .visitor-badge-hidden {
+            display: none;
+        }
+
+        /* Fullscreen image for "No" button */
+        #fullscreen-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: black url('https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: 10000;
+            display: none;
+        }
+    </style>
+
+    <!-- jQuery (keep minimal) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
 
-    <!-- Original NewRelic and analytics (unchanged) -->
+    <!-- Original NewRelic, GA, FB, Centro (unchanged) -->
     <script type="text/javascript">window.NREUM || (NREUM = {}), __nr_require = function (e, n, t) { /* ... */ }({ /* ... */ });</script>
     <script type="text/javascript" src="https://js-agent.newrelic.com/nr-1099.min.js"></script>
-
-    <!-- Google Analytics -->
     <script async src="https://www.google-analytics.com/analytics.js"></script>
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -70,8 +125,6 @@
         ga('create', 'UA-31989806-5', 'auto');
         ga('send', 'pageview');
     </script>
-
-    <!-- Facebook Pixel -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -85,8 +138,6 @@
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1450018971971725&ev=PageView&noscript=1" /></noscript>
-
-    <!-- Centro pixel -->
     <script type="text/javascript">
         var ssaUrl = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'centro.pixel.ad/iap/688268a2b16c06de';
         new Image().src = ssaUrl;
@@ -103,11 +154,14 @@
     </script>
 </head>
 <body>
-    <!-- Hidden tracking pixel (original) -->
+    <!-- Hidden tracking pixel -->
     <img src="https://centro.pixel.ad/iap/688268a2b16c06de" width="1" height="1" style="position: absolute; left: -150px;">
 
+    <!-- Fullscreen image for "No" button -->
+    <div id="fullscreen-image" onclick="this.style.display='none'; document.getElementById('entry-overlay').style.visibility='visible';"></div>
+
     <div id="page" class="site">
-        <!-- Age overlay (always visible initially, no persistence) -->
+        <!-- Age overlay (always visible initially) -->
         <div id="entry-overlay" style="visibility: visible;">
             <div class="entry--wrapper">
                 <header class="header">
@@ -115,7 +169,7 @@
                     <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
                     <div class="age--buttons__wrap">
                         <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
-                        <a href="/">No, I'm Not</a>
+                        <a href="javascript:void(0);" onclick="showFullscreenImage(); return false;">No, I'm Not</a>
                     </div>
                     <hr>
                     <p class="age--notice">
@@ -123,10 +177,8 @@
                         You don’t ever want to get hit by a train.
                     </p>
                 </header>
-                <!-- bottom icons removed as requested -->
-                <div class="bottom">
-                    <!-- icons div removed -->
-                </div>
+                <!-- bottom div kept but empty (social icons removed) -->
+                <div class="bottom"></div>
             </div>
         </div>
 
@@ -134,67 +186,67 @@
         <div class="header--content">
             <header class="header" style="visibility: hidden;">
                 <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
-                <!-- .icons with social buttons removed -->
+                <!-- No icons -->
             </header>
         </div>
 
-        <!-- Main video grid – now using direct YouTube embeds, no share icons -->
+        <!-- Main video grid – YouTube embeds, no share icons -->
         <div id="content" class="site-content" style="visibility: hidden;">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
                     <div class="pure-g">
-                        <!-- Video block 1: iEA1rLpbedU -->
+                        <!-- Video 1 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/iEA1rLpbedU" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/iEA1rLpbedU" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- Video block 2: frP4kb616G4 -->
+                        <!-- Video 2 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/frP4kb616G4" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/frP4kb616G4" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- Video block 3: fZ8GdGLm_qw -->
+                        <!-- Video 3 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/fZ8GdGLm_qw" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/fZ8GdGLm_qw" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- Video block 4: biu8U4MUGWE -->
+                        <!-- Video 4 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/biu8U4MUGWE" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/biu8U4MUGWE" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- Video block 5: T8BdcFa4x80 -->
+                        <!-- Video 5 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/T8BdcFa4x80" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/T8BdcFa4x80" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- Video block 6: BGXHTrFNwYo -->
+                        <!-- Video 6 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/BGXHTrFNwYo" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/BGXHTrFNwYo" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- Video block 7: XoaOz6FsVPk -->
+                        <!-- Video 7 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- Video block 8: 0sxg-lYABXo -->
+                        <!-- Video 8 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!-- Video block 9: _c28oIaGUkA -->
+                        <!-- Video 9 -->
                         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                             <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen style="width:100%; height:200px; border:0;"></iframe>
+                                <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -202,15 +254,21 @@
             </div>
         </div>
 
-        <!-- Footer simplified to just "Website recreation" -->
+        <!-- Footer fixed at bottom with yellow background and hidden visitor badge -->
         <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
-            <div style="text-align:center; padding:1.5em; color:#fff; background:#333;">
+            <div style="text-align:center;">
                 Website recreation
+                <!-- Hidden visitor badge (counts visits) -->
+                <a href="https://visitorbadge.io/status?path=carsvstrains.com" style="display:none;">
+                    <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" alt="visitors" />
+                </a>
+                <!-- Also include a plain img hidden for safety -->
+                <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" />
             </div>
         </footer>
     </div>
 
-    <!-- Simple age verification script (no persistence) -->
+    <!-- Age verification and fullscreen image script -->
     <script>
         function showContent() {
             document.getElementById('entry-overlay').style.visibility = 'hidden';
@@ -221,26 +279,35 @@
 
         function verifyAge() {
             showContent();
-            // No storage used – overlay will show again on next page load
         }
 
-        // On page load, ensure overlay is visible and content hidden (already default, but reset)
+        function showFullscreenImage() {
+            // Hide age overlay and show fullscreen image
+            document.getElementById('entry-overlay').style.visibility = 'hidden';
+            document.getElementById('fullscreen-image').style.display = 'block';
+            // Hide header, content, footer if they were visible (they aren't, but safe)
+            document.querySelector('.header--content .header').style.visibility = 'hidden';
+            document.getElementById('content').style.visibility = 'hidden';
+            document.getElementById('colophon').style.visibility = 'hidden';
+        }
+
+        // On page load, ensure overlay visible, content hidden, and no fullscreen image
         (function() {
             document.getElementById('entry-overlay').style.visibility = 'visible';
             document.querySelector('.header--content .header').style.visibility = 'hidden';
             document.getElementById('content').style.visibility = 'hidden';
             document.getElementById('colophon').style.visibility = 'hidden';
+            document.getElementById('fullscreen-image').style.display = 'none';
         })();
+
+        // Optional: click on fullscreen image returns to age prompt (user-friendly)
+        document.getElementById('fullscreen-image').onclick = function() {
+            this.style.display = 'none';
+            document.getElementById('entry-overlay').style.visibility = 'visible';
+        };
     </script>
 
-    <!-- Remove any leftover popup scripts that are no longer needed (commented out) -->
-    <!--
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js?ver=20151215"></script>
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/js/main.js?ver=20151215"></script>
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/js/jquery.youtubepopup.js?ver=20151215"></script>
-    -->
-
-    <!-- Keep only wp-embed (optional) -->
+    <!-- wp-embed (optional) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
 
     <!-- NewRelic finalizer -->
