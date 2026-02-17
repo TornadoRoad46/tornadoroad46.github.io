@@ -132,9 +132,8 @@
                     <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
                     <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
                     <div class="age--buttons__wrap">
-                        <!-- On the index page the buttons redirect to the split pages -->
-                        <a href="/videos">Yes, I Am</a>
-                        <a href="/furball">No, I'm Not</a>
+                        <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
+                        <a href="javascript:void(0);" onclick="showFullscreenImage(); return false;">No, I'm Not</a>
                     </div>
                     <hr>
                     <p class="age--notice">
@@ -154,117 +153,6 @@
                 <!-- No icons -->
             </header>
         </div>
-
-        <!-- Main video grid – YouTube embeds, with gaps -->
-        <div id="content" class="site-content" style="visibility: hidden;">
-            <div id="primary" class="content-area">
-                <main id="main" class="site-main" role="main">
-                    <div class="pure-g">
-                        <!-- Video 1 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/iEA1rLpbedU" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <!-- Video 2 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/frP4kb616G4" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <!-- Video 3 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/fZ8GdGLm_qw" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <!-- Video 4 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/biu8U4MUGWE" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <!-- Video 5 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/T8BdcFa4x80" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <!-- Video 6 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/BGXHTrFNwYo" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <!-- Video 7 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/XoaOz6FsVPk" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <!-- Video 8 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/0sxg-lYABXo" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <!-- Video 9 -->
-                        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                            <div class="l-box video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/_c28oIaGUkA" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-
-        <!-- Footer fixed at bottom with yellow background and hidden visitor badge -->
-        <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
-            <div style="text-align:center;">
-                Website recreation
-                <!-- Hidden visitor badge (counts visits) - using display:none ensures it's invisible but the request is made -->
-                <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" alt="visitor counter" />
-            </div>
-        </footer>
-    </div>
-
-    <!-- Minimal script on index: clicking either button navigates to the split pages -->
-    <script>
-        // Keep functions minimal and deterministic on the index page:
-        function verifyAge() {
-            // Redirect to the /videos page which contains the site content visible.
-            window.location.href = '/videos';
-        }
-
-        function showFullscreenImage() {
-            // Redirect to the /furball page which will show the fullscreen image.
-            window.location.href = '/furball';
-        }
-
-        // On page load, ensure overlay visible, content hidden, and no fullscreen image
-        (function() {
-            document.getElementById('entry-overlay').style.visibility = 'visible';
-            var header = document.querySelector('.header--content .header');
-            if (header) header.style.visibility = 'hidden';
-            var content = document.getElementById('content');
-            if (content) content.style.visibility = 'hidden';
-            var col = document.getElementById('colophon');
-            if (col) col.style.visibility = 'hidden';
-            var fs = document.getElementById('fullscreen-image');
-            if (fs) fs.style.display = 'none';
-        })();
-
-        // Provide click-to-return behavior on fullscreen image element
-        var fsImg = document.getElementById('fullscreen-image');
-        if (fsImg) {
-            fsImg.onclick = function() {
-                this.style.display = 'none';
-                document.getElementById('entry-overlay').style.visibility = 'visible';
-            };
-        }
-    </script>
-
     <!-- wp-embed (optional, but harmless) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
 </body>
