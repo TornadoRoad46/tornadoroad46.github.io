@@ -121,19 +121,20 @@
     <!-- All analytics/tracking scripts removed as requested -->
 </head>
 <body>
-    <!-- Fullscreen image for "No" button -->
-    <div id="fullscreen-image" onclick="this.style.display='none'; document.getElementById('entry-overlay').style.visibility='visible';"></div>
+    <!-- Fullscreen image for "No" button (hidden on videos) -->
+    <div id="fullscreen-image" onclick="window.location.href='/';" style="display: none;"></div>
 
     <div id="page" class="site">
-        <!-- Age overlay (kept for completeness, but hidden on this page on load) -->
+        <!-- Age overlay (hidden on videos) -->
         <div id="entry-overlay" style="visibility: hidden;">
             <div class="entry--wrapper">
                 <header class="header">
                     <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
                     <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
                     <div class="age--buttons__wrap">
-                        <a href="/videos" onclick="verifyAge(); return false;">Yes, I Am</a>
-                        <a href="/furball" onclick="showFullscreenImage(); return false;">No, I'm Not</a>
+                        <!-- Links are hidden but kept for structure -->
+                        <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
+                        <a href="javascript:void(0);" onclick="showFullscreenImage(); return false;">No, I'm Not</a>
                     </div>
                     <hr>
                     <p class="age--notice">
@@ -141,11 +142,12 @@
                         You don’t ever want to get hit by a train.
                     </p>
                 </header>
+                <!-- bottom div kept but empty (social icons removed) -->
                 <div class="bottom"></div>
             </div>
         </div>
 
-        <!-- Header after verification (visible on this page) -->
+        <!-- Header after verification (visible on videos) -->
         <div class="header--content">
             <header class="header" style="visibility: visible;">
                 <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
@@ -153,7 +155,7 @@
             </header>
         </div>
 
-        <!-- Main video grid – YouTube embeds, with gaps (visible on this page) -->
+        <!-- Main video grid – YouTube embeds, with gaps (visible on videos) -->
         <div id="content" class="site-content" style="visibility: visible;">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
@@ -217,56 +219,14 @@
             </div>
         </div>
 
-        <!-- Footer fixed at bottom with yellow background and hidden visitor badge -->
+        <!-- Footer fixed at bottom with yellow background (visible on videos, no visitor badge) -->
         <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: visible;">
             <div style="text-align:center;">
                 Website recreation
-                <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" alt="visitor counter" />
+                <!-- Visitor badge removed from this page -->
             </div>
         </footer>
     </div>
-
-    <!-- Age verification and fullscreen image script -->
-    <script>
-        function showContent() {
-            document.getElementById('entry-overlay').style.visibility = 'hidden';
-            var header = document.querySelector('.header--content .header');
-            if (header) header.style.visibility = 'visible';
-            var content = document.getElementById('content');
-            if (content) content.style.visibility = 'visible';
-            var col = document.getElementById('colophon');
-            if (col) col.style.visibility = 'visible';
-        }
-
-        function verifyAge() {
-            // On this split page, keep the function as a no-op that ensures content is visible.
-            showContent();
-            // Optional: ensure URL stays /videos
-            if (window.location.pathname !== '/videos') {
-                history.replaceState(null, '', '/videos');
-            }
-        }
-
-        function showFullscreenImage() {
-            // Redirect to the /furball page which will show the fullscreen image.
-            window.location.href = '/furball';
-        }
-
-        // On page load, show the content as if "Yes" was pressed
-        (function() {
-            showContent();
-            document.getElementById('fullscreen-image').style.display = 'none';
-        })();
-
-        // Optional: click on fullscreen image returns to age prompt (user-friendly)
-        var fs = document.getElementById('fullscreen-image');
-        if (fs) {
-            fs.onclick = function() {
-                this.style.display = 'none';
-                document.getElementById('entry-overlay').style.visibility = 'visible';
-            };
-        }
-    </script>
 
     <!-- wp-embed (optional, but harmless) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
