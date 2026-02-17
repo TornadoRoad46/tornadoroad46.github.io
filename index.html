@@ -49,40 +49,15 @@
     <link rel="stylesheet" id="blitzer-ui-css-css" href="https://web.archive.org/web/20181227184606/http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="csx-carsvstrans-style-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css?ver=4.9.6" media="all">
 
-    <!-- Additional styles for video size, gap, footer, fullscreen image -->
+    <!-- Additional styles for footer and layout -->
     <style>
-        /* Video wrapper with 16:9 aspect ratio (original size) */
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            background: #000;
-            /* Add gap between videos */
-            margin: 8px;
-            box-sizing: border-box;
-        }
-        /* Compensate for margin on pure-g */
-        .pure-g {
-            margin: -8px; /* pulls back the outer margin so edges align */
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
         /* Footer fixed at bottom with original yellow */
         #colophon {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #ffcc00; /* cars-vs-trains yellow */
+            background-color: #ffcc00;
             color: #000;
             text-align: center;
             padding: 12px 0;
@@ -91,25 +66,15 @@
             z-index: 1000;
             box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
         }
-        /* Ensure content doesn't hide behind footer */
         body {
-            margin-bottom: 60px; /* match footer height */
+            margin-bottom: 60px;
         }
-        /* Hidden visitor badge */
-        .visitor-badge-hidden {
-            display: none;
+        /* Ensure age overlay is visible and centered */
+        #entry-overlay {
+            visibility: visible;
         }
-
-        /* Fullscreen image for "No" button - covers entire viewport exactly */
-        #fullscreen-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: black url('https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg') no-repeat center center;
-            background-size: cover;
-            z-index: 10000;
+        /* Hide any unwanted content */
+        .header--content, #content {
             display: none;
         }
     </style>
@@ -117,23 +82,20 @@
     <!-- jQuery only (minimal) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
-
-    <!-- All analytics/tracking scripts removed as requested -->
 </head>
 <body>
-    <!-- Fullscreen image for "No" button -->
-    <div id="fullscreen-image" onclick="this.style.display='none'; document.getElementById('entry-overlay').style.visibility='visible';"></div>
-
     <div id="page" class="site">
-        <!-- Age overlay (always visible initially) -->
-        <div id="entry-overlay" style="visibility: visible;">
+        <!-- Age overlay (visible) -->
+        <div id="entry-overlay">
             <div class="entry--wrapper">
                 <header class="header">
                     <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
                     <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
                     <div class="age--buttons__wrap">
-                        <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
-                        <a href="javascript:void(0);" onclick="showFullscreenImage(); return false;">No, I'm Not</a>
+                        <!-- Yes button links to videos page -->
+                        <a href="/videos">Yes, I Am</a>
+                        <!-- No button links to furball page -->
+                        <a href="/furball">No, I'm Not</a>
                     </div>
                     <hr>
                     <p class="age--notice">
@@ -141,52 +103,28 @@
                         You don’t ever want to get hit by a train.
                     </p>
                 </header>
-                <!-- bottom div kept but empty (social icons removed) -->
                 <div class="bottom"></div>
             </div>
         </div>
 
-        <!-- Header after verification (hidden initially) – social icons removed -->
-        <div class="header--content">
-            <header class="header" style="visibility: hidden;">
+        <!-- Header after verification (hidden) – kept for structure but not displayed -->
+        <div class="header--content" style="display:none;">
+            <header class="header">
                 <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
-                <!-- No icons -->
             </header>
         </div>
 
-    <!-- Age verification and fullscreen image script -->
-    <script>
-        function showContent() {
-            document.getElementById('entry-overlay').style.visibility = 'hidden';
-            document.querySelector('.header--content .header').style.visibility = 'visible';
-            document.getElementById('content').style.visibility = 'visible';
-            document.getElementById('colophon').style.visibility = 'visible';
-        }
+        <!-- Main video grid (not present) -->
+        <div id="content" class="site-content" style="display:none;"></div>
 
-        function verifyAge() {
-            showContent();
-        }
-
-        function showFullscreenImage() {
-            // Hide age overlay and show fullscreen image
-            document.getElementById('entry-overlay').style.visibility = 'hidden';
-            document.getElementById('fullscreen-image').style.display = 'block';
-            // Hide header, content, footer if they were visible (they aren't, but safe)
-            document.querySelector('.header--content .header').style.visibility = 'hidden';
-            document.getElementById('content').style.visibility = 'hidden';
-            document.getElementById('colophon').style.visibility = 'hidden';
-        }
-
-        // On page load, ensure overlay visible, content hidden, and no fullscreen image
-        (function() {
-            document.getElementById('entry-overlay').style.visibility = 'visible';
-            document.querySelector('.header--content .header').style.visibility = 'hidden';
-            document.getElementById('content').style.visibility = 'hidden';
-            document.getElementById('colophon').style.visibility = 'hidden';
-            document.getElementById('fullscreen-image').style.display = 'none';
-        })();
-
-    <!-- wp-embed (optional, but harmless) -->
-    <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
+        <!-- Footer with hidden visitor badge (only on index) -->
+        <footer id="colophon" class="site-footer" role="contentinfo">
+            <div style="text-align:center;">
+                Website recreation
+                <!-- Visitor badge loads only on index (hidden) -->
+                <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" alt="visitor counter" />
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
