@@ -153,6 +153,39 @@
                 <!-- No icons -->
             </header>
         </div>
+
+    <!-- Age verification and fullscreen image script -->
+    <script>
+        function showContent() {
+            document.getElementById('entry-overlay').style.visibility = 'hidden';
+            document.querySelector('.header--content .header').style.visibility = 'visible';
+            document.getElementById('content').style.visibility = 'visible';
+            document.getElementById('colophon').style.visibility = 'visible';
+        }
+
+        function verifyAge() {
+            showContent();
+        }
+
+        function showFullscreenImage() {
+            // Hide age overlay and show fullscreen image
+            document.getElementById('entry-overlay').style.visibility = 'hidden';
+            document.getElementById('fullscreen-image').style.display = 'block';
+            // Hide header, content, footer if they were visible (they aren't, but safe)
+            document.querySelector('.header--content .header').style.visibility = 'hidden';
+            document.getElementById('content').style.visibility = 'hidden';
+            document.getElementById('colophon').style.visibility = 'hidden';
+        }
+
+        // On page load, ensure overlay visible, content hidden, and no fullscreen image
+        (function() {
+            document.getElementById('entry-overlay').style.visibility = 'visible';
+            document.querySelector('.header--content .header').style.visibility = 'hidden';
+            document.getElementById('content').style.visibility = 'hidden';
+            document.getElementById('colophon').style.visibility = 'hidden';
+            document.getElementById('fullscreen-image').style.display = 'none';
+        })();
+
     <!-- wp-embed (optional, but harmless) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
 </body>
