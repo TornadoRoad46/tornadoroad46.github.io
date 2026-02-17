@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Cars Vs Trains — Age Verification</title>
-    <link rel="stylesheet" href="https://web.archive.org/web/20181227184606/http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" />
-    <style>
-        body { font-family: "Roboto", Arial, sans-serif; margin:0; background:#111; color:#fff; display:flex; align-items:center; justify-content:center; height:100vh; }
-        .card { max-width:720px; width:90%; text-align:center; background:rgba(0,0,0,0.6); padding:28px; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.6); }
-        .title { max-width:320px; margin:0 auto 12px; display:block; }
-        h1 { font-size:20px; margin:8px 0 18px; letter-spacing:0.6px; }
-        .age--buttons__wrap a { display:inline-block; margin:6px 10px; padding:12px 20px; border-radius:6px; text-decoration:none; font-weight:600; }
-        .btn-yes { background:#2e7d32; color:#fff; }
-        .btn-no  { background:#b71c1c; color:#fff; }
-        .notice { margin-top:16px; color:#ffd54f; font-size:14px; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cars Vs Trains</title>
+
+    <!-- KEEP ALL ORIGINAL STYLES -->
+    <link rel="stylesheet" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css">
 </head>
+
 <body>
-    <div class="card" role="main" aria-labelledby="age-title">
-        <img class="title" src="/CvT-header-transparent.png" alt="Cars vs Trains" />
-        <h1 id="age-title">ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
 
-        <div class="age--buttons__wrap" aria-hidden="false">
-            <!-- Navigate to separate pages -->
-            <a class="btn-yes" href="/videos/" role="button">Yes, I Am</a>
-            <a class="btn-no" href="/furball/" role="button">No, I'm Not</a>
+<div id="page" class="site">
+    <div id="entry-overlay" style="visibility: visible;">
+        <div class="entry--wrapper">
+            <header class="header">
+                <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
+                <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
+
+                <div class="age--buttons__wrap">
+                    <a href="videos.html">Yes, I Am</a>
+                    <a href="furball.html">No, I'm Not</a>
+                </div>
+
+                <hr>
+
+                <p class="age--notice">
+                    <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
+                    You don’t ever want to get hit by a train.
+                </p>
+            </header>
+
+            <div class="bottom"></div>
         </div>
-
-        <hr style="margin:18px 0; border:none; border-top:1px solid rgba(255,255,255,0.08);" />
-        <p class="notice"><strong>NOTICE:</strong> The following are real videos. You don’t ever want to get hit by a train.</p>
     </div>
+</div>
+
 </body>
 </html>
