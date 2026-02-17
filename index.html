@@ -49,7 +49,7 @@
     <link rel="stylesheet" id="blitzer-ui-css-css" href="https://web.archive.org/web/20181227184606/http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="csx-carsvstrans-style-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css?ver=4.9.6" media="all">
 
-    <!-- Additional styles for video size, gap, footer, fullscreen image -->
+    <!-- Additional styles for video size, gap, footer -->
     <style>
         /* Video wrapper with 16:9 aspect ratio (original size) */
         .video-wrapper {
@@ -99,42 +99,24 @@
         .visitor-badge-hidden {
             display: none;
         }
-
-        /* Fullscreen image for "No" button - covers entire viewport exactly */
-        #fullscreen-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: black url('https://static1.e926.net/data/84/13/8413d473460f12aca578733224732579.jpg') no-repeat center center;
-            background-size: cover;
-            z-index: 10000;
-            display: none;
-        }
     </style>
 
     <!-- jQuery only (minimal) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
-
-    <!-- All analytics/tracking scripts removed as requested -->
 </head>
 <body>
-    <!-- Fullscreen image for "No" button (hidden on index) -->
-    <div id="fullscreen-image" onclick="window.location.href='/';"></div>
-
     <div id="page" class="site">
-        <!-- Age overlay (visible on index) -->
+        <!-- Age overlay (always visible initially) -->
         <div id="entry-overlay" style="visibility: visible;">
             <div class="entry--wrapper">
                 <header class="header">
                     <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
                     <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
                     <div class="age--buttons__wrap">
-                        <!-- Yes button now links to /videos, No button links to /furball -->
-                        <a href="/videos">Yes, I Am</a>
-                        <a href="/furball">No, I'm Not</a>
+                        <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
+                        <!-- No button now links directly to furball.html -->
+                        <a href="furball.html">No, I'm Not</a>
                     </div>
                     <hr>
                     <p class="age--notice">
@@ -155,7 +137,7 @@
             </header>
         </div>
 
-        <!-- Main video grid – YouTube embeds, with gaps (hidden on index) -->
+        <!-- Main video grid – YouTube embeds, with gaps -->
         <div id="content" class="site-content" style="visibility: hidden;">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
@@ -219,15 +201,37 @@
             </div>
         </div>
 
-        <!-- Footer fixed at bottom with yellow background and hidden visitor badge (only on index) -->
+        <!-- Footer fixed at bottom with yellow background and hidden visitor badge -->
         <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
             <div style="text-align:center;">
                 Website recreation
-                <!-- Visitor badge loads only on index (hidden but request made) -->
+                <!-- Hidden visitor badge (counts visits) - using display:none ensures it's invisible but the request is made -->
                 <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" alt="visitor counter" />
             </div>
         </footer>
     </div>
+
+    <!-- Age verification script (fullscreen image function removed) -->
+    <script>
+        function showContent() {
+            document.getElementById('entry-overlay').style.visibility = 'hidden';
+            document.querySelector('.header--content .header').style.visibility = 'visible';
+            document.getElementById('content').style.visibility = 'visible';
+            document.getElementById('colophon').style.visibility = 'visible';
+        }
+
+        function verifyAge() {
+            showContent();
+        }
+
+        // On page load, ensure overlay visible, content hidden
+        (function() {
+            document.getElementById('entry-overlay').style.visibility = 'visible';
+            document.querySelector('.header--content .header').style.visibility = 'hidden';
+            document.getElementById('content').style.visibility = 'hidden';
+            document.getElementById('colophon').style.visibility = 'hidden';
+        })();
+    </script>
 
     <!-- wp-embed (optional, but harmless) -->
     <script type="text/javascript" src="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-includes/js/wp-embed.min.js?ver=4.9.6"></script>
