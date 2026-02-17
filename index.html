@@ -121,20 +121,20 @@
     <!-- All analytics/tracking scripts removed as requested -->
 </head>
 <body>
-    <!-- Fullscreen image for "No" button (hidden on videos) -->
-    <div id="fullscreen-image" onclick="window.location.href='/';" style="display: none;"></div>
+    <!-- Fullscreen image for "No" button (hidden on index) -->
+    <div id="fullscreen-image" onclick="window.location.href='/';"></div>
 
     <div id="page" class="site">
-        <!-- Age overlay (hidden on videos) -->
-        <div id="entry-overlay" style="visibility: hidden;">
+        <!-- Age overlay (visible on index) -->
+        <div id="entry-overlay" style="visibility: visible;">
             <div class="entry--wrapper">
                 <header class="header">
                     <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
                     <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
                     <div class="age--buttons__wrap">
-                        <!-- Links are hidden but kept for structure -->
-                        <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
-                        <a href="javascript:void(0);" onclick="showFullscreenImage(); return false;">No, I'm Not</a>
+                        <!-- Yes button now links to /videos, No button links to /furball -->
+                        <a href="/videos">Yes, I Am</a>
+                        <a href="/furball">No, I'm Not</a>
                     </div>
                     <hr>
                     <p class="age--notice">
@@ -147,16 +147,16 @@
             </div>
         </div>
 
-        <!-- Header after verification (visible on videos) -->
+        <!-- Header after verification (hidden initially) – social icons removed -->
         <div class="header--content">
-            <header class="header" style="visibility: visible;">
+            <header class="header" style="visibility: hidden;">
                 <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
                 <!-- No icons -->
             </header>
         </div>
 
-        <!-- Main video grid – YouTube embeds, with gaps (visible on videos) -->
-        <div id="content" class="site-content" style="visibility: visible;">
+        <!-- Main video grid – YouTube embeds, with gaps (hidden on index) -->
+        <div id="content" class="site-content" style="visibility: hidden;">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
                     <div class="pure-g">
@@ -219,11 +219,12 @@
             </div>
         </div>
 
-        <!-- Footer fixed at bottom with yellow background (visible on videos, no visitor badge) -->
-        <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: visible;">
+        <!-- Footer fixed at bottom with yellow background and hidden visitor badge (only on index) -->
+        <footer id="colophon" class="site-footer" role="contentinfo" style="visibility: hidden;">
             <div style="text-align:center;">
                 Website recreation
-                <!-- Visitor badge removed from this page -->
+                <!-- Visitor badge loads only on index (hidden but request made) -->
+                <img src="https://api.visitorbadge.io/api/visitors?path=carsvstrains.com&countColor=%23263759" style="display:none;" alt="visitor counter" />
             </div>
         </footer>
     </div>
