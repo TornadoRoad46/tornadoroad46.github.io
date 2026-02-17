@@ -49,7 +49,7 @@
     <link rel="stylesheet" id="blitzer-ui-css-css" href="https://web.archive.org/web/20181227184606/http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="csx-carsvstrans-style-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css?ver=4.9.6" media="all">
 
-    <!-- Additional styles for video size, gap, footer -->
+    <!-- Additional styles for video size, gap, footer, and hidden link -->
     <style>
         /* Video wrapper with 16:9 aspect ratio (original size) */
         .video-wrapper {
@@ -99,6 +99,16 @@
         .visitor-badge-hidden {
             display: none;
         }
+
+        /* Style for the hidden "train" link – blends in with normal text */
+        .hidden-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .hidden-link:hover {
+            text-decoration: underline; /* subtle hint on hover */
+        }
     </style>
 
     <!-- jQuery only (minimal) -->
@@ -115,13 +125,12 @@
                     <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
                     <div class="age--buttons__wrap">
                         <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
-                        <!-- No button now links directly to furball.html -->
                         <a href="furball.html">No, I'm Not</a>
                     </div>
                     <hr>
                     <p class="age--notice">
                         <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
-                        You don’t ever want to get hit by a train.
+                        You don’t ever want to get hit by a <a href="windowsphone.html" class="hidden-link">train</a>.
                     </p>
                 </header>
                 <!-- bottom div kept but empty (social icons removed) -->
