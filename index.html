@@ -49,7 +49,7 @@
     <link rel="stylesheet" id="blitzer-ui-css-css" href="https://web.archive.org/web/20181227184606/http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css?ver=4.9.6" media="all">
     <link rel="stylesheet" id="csx-carsvstrans-style-css" href="https://web.archive.org/web/20181227184606/http://www.carsvstrains.com/wp-content/themes/carsvstrains/build/styles/style.css?ver=4.9.6" media="all">
 
-    <!-- Additional styles for video size, gap, footer, and hidden link -->
+    <!-- Additional styles for video size, gap, footer, glassy effect, and borders -->
     <style>
         /* Video wrapper with 16:9 aspect ratio (original size) */
         .video-wrapper {
@@ -62,6 +62,9 @@
             /* Add gap between videos */
             margin: 8px;
             box-sizing: border-box;
+            /* Add border for grid effect */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px; /* optional soft corners */
         }
         /* Compensate for margin on pure-g */
         .pure-g {
@@ -74,6 +77,16 @@
             width: 100%;
             height: 100%;
             border: 0;
+        }
+
+        /* Glassy effect on the video page */
+        .site-content {
+            background: rgba(20, 20, 30, 0.6); /* semi-transparent dark background */
+            backdrop-filter: blur(8px); /* glass blur */
+            -webkit-backdrop-filter: blur(8px); /* for Safari */
+            padding: 20px 0; /* some padding around the grid */
+            border-radius: 8px; /* optional */
+            margin: 10px; /* optional spacing from edges */
         }
 
         /* Footer fixed at bottom with original yellow */
@@ -94,6 +107,7 @@
         /* Ensure content doesn't hide behind footer */
         body {
             margin-bottom: 60px; /* match footer height */
+            background: #111; /* dark background behind glass for contrast */
         }
         /* Hidden visitor badge */
         .visitor-badge-hidden {
@@ -150,7 +164,7 @@
             </header>
         </div>
 
-        <!-- Main video grid – YouTube embeds, with gaps -->
+        <!-- Main video grid – YouTube embeds, with gaps and glassy background -->
         <div id="content" class="site-content" style="visibility: hidden;">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
