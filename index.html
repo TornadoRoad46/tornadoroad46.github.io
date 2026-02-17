@@ -100,14 +100,18 @@
             display: none;
         }
 
-        /* Style for the hidden "train" link – blends in with normal text */
-        .hidden-link {
+        /* Style for the hidden "train" link – blends in completely */
+        .hidden-link,
+        .hidden-link:link,
+        .hidden-link:visited {
             color: inherit;
             text-decoration: none;
-            cursor: pointer;
         }
         .hidden-link:hover {
             text-decoration: underline; /* subtle hint on hover */
+        }
+        .hidden-link:active {
+            color: inherit; /* no flash of default color */
         }
     </style>
 
