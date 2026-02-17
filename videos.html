@@ -121,32 +121,6 @@
     <!-- All analytics/tracking scripts removed as requested -->
 </head>
 <body>
-    <!-- Fullscreen image for "No" button (hidden on videos) -->
-    <div id="fullscreen-image" onclick="window.location.href='/';" style="display: none;"></div>
-
-    <div id="page" class="site">
-        <!-- Age overlay (hidden on videos) -->
-        <div id="entry-overlay" style="visibility: hidden;">
-            <div class="entry--wrapper">
-                <header class="header">
-                    <img class="title" src="/CvT-header-transparent.png" alt="[Cars vs Trains]">
-                    <h1>ARE YOU AT LEAST 18 YEARS OF AGE?</h1>
-                    <div class="age--buttons__wrap">
-                        <!-- Links are hidden but kept for structure -->
-                        <a href="javascript:void(0);" onclick="verifyAge(); return false;">Yes, I Am</a>
-                        <a href="javascript:void(0);" onclick="showFullscreenImage(); return false;">No, I'm Not</a>
-                    </div>
-                    <hr>
-                    <p class="age--notice">
-                        <span class="notice--yellow">NOTICE:</span> The following are real videos.<br>
-                        You don’t ever want to get hit by a train.
-                    </p>
-                </header>
-                <!-- bottom div kept but empty (social icons removed) -->
-                <div class="bottom"></div>
-            </div>
-        </div>
-
         <!-- Header after verification (visible on videos) -->
         <div class="header--content">
             <header class="header" style="visibility: visible;">
